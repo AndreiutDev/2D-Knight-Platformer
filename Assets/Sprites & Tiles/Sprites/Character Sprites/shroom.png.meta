@@ -1,0 +1,343 @@
+fileFormatVersion: 2
+guid: 8ae099b9496ab444196facdd3f8a1e8b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2643051324994869849
+    second: shroom_0
+  - first:
+      213: -351240666533949351
+    second: shroom_1
+  - first:
+      213: -5618723105780267644
+    second: shroom_2
+  - first:
+      213: 4686026002024490610
+    second: shroom_3
+  - first:
+      213: 1178046711048854651
+    second: shroom_4
+  - first:
+      213: 5997121973431522649
+    second: shroom_5
+  - first:
+      213: 5408724569086694770
+    second: shroom_6
+  - first:
+      213: -1498687963777439386
+    second: shroom_7
+  - first:
+      213: -3867306246040011490
+    second: shroom_8
+  - first:
+      213: 9188316771232051756
+    second: shroom_9
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: shroom_0
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 592
+        width: 28
+        height: 26
+      alignment: 9
+      pivot: {x: 0.5357143, y: -0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e1a833cb6c5a4e409e0b4826f979e4d
+      internalID: -2643051324994869849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shroom_1
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 592
+        width: 28
+        height: 24
+      alignment: 9
+      pivot: {x: 0.5357143, y: -0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3eb1b0bf7b024404c9d6cca31493db32
+      internalID: -351240666533949351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shroom_2
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 592
+        width: 26
+        height: 27
+      alignment: 9
+      pivot: {x: 0.53846157, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b461cd02e7d1e3341889a2361a0c8e17
+      internalID: -5618723105780267644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shroom_3
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 432
+        width: 28
+        height: 26
+      alignment: 9
+      pivot: {x: 0.5357143, y: -0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90fc4cb859d2f5d46bebd0df01e61f50
+      internalID: 4686026002024490610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shroom_4
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 432
+        width: 29
+        height: 20
+      alignment: 9
+      pivot: {x: 0.55172414, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84b91affd8ccb1f44b3e58c64c081399
+      internalID: 1178046711048854651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shroom_5
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 440
+        width: 30
+        height: 26
+      alignment: 9
+      pivot: {x: 0.5, y: -0.15384616}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 131071ec671723041b15c244af547d15
+      internalID: 5997121973431522649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shroom_6
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 275
+        width: 33
+        height: 29
+      alignment: 9
+      pivot: {x: 0.6060606, y: -0.06896552}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59067a51ebcc65840bc4d0c4e6484b59
+      internalID: 5408724569086694770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shroom_7
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 272
+        width: 32
+        height: 23
+      alignment: 9
+      pivot: {x: 0.59375, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19020669f52c2104cbd50476ead09fb1
+      internalID: -1498687963777439386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shroom_8
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 272
+        width: 30
+        height: 25
+      alignment: 9
+      pivot: {x: 0.5666667, y: -0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4656b0fe792c4e646aa7faccd9e93dec
+      internalID: -3867306246040011490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shroom_9
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 112
+        width: 28
+        height: 26
+      alignment: 9
+      pivot: {x: 0.5357143, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ee31a42aa5dfc048af730a4b7e7132a
+      internalID: 9188316771232051756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
