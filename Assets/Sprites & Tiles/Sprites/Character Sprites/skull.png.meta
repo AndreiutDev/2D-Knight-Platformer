@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 55154ebae2e3f3548a50186d5ef6d641
+guid: eb61efb928d80c54e8e623d98c796f13
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6007857137893288414
-    second: Sprite-0001_0
+      213: -3560852360957142242
+    second: skull_0
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -89,22 +89,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sprite-0001_0
+      name: skull_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 110
-        width: 15
-        height: 16
+        x: 19
+        y: 80
+        width: 12
+        height: 12
       alignment: 9
-      pivot: {x: 0.73333335, y: 0.8125}
+      pivot: {x: 0.6666667, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1697ed4ffc7be2447bdb012729ec549a
-      internalID: -6007857137893288414
+      spriteID: e5cbd5c3959fdda499e138b728babf1f
+      internalID: -3560852360957142242
       vertices: []
       indices: 
       edges: []

@@ -139,18 +139,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0315499, y: -0.34053537}
+  m_Offset: {x: -0.017774105, y: 0.05244887}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.46875, y: 0.84375}
-    newSize: {x: 0.46875, y: 0.84375}
+    pivot: {x: 0.6, y: -0}
+    oldSize: {x: 0.46875, y: 0.8125}
+    newSize: {x: 0.46875, y: 0.8125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.31091338, y: 0.13195878}
+  m_Size: {x: 0.16828632, y: 0.10648084}
   m_EdgeRadius: 0
 --- !u!1 &94273466
 GameObject:
@@ -514,8 +514,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -820285769
-  m_SortingLayer: 3
+  m_SortingLayerID: -97736573
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -2553,37 +2553,37 @@ PrefabInstance:
     - target: {fileID: 5858763405099846520, guid: 2dcdb47bd91c8f74a8b1c828364aa02d,
         type: 3}
       propertyPath: jumpForce
-      value: 8
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 5858763405099846520, guid: 2dcdb47bd91c8f74a8b1c828364aa02d,
         type: 3}
       propertyPath: deathKick.x
-      value: 5
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5858763405099846520, guid: 2dcdb47bd91c8f74a8b1c828364aa02d,
         type: 3}
       propertyPath: deathKick.y
-      value: 5
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: -7578508283424546980, guid: 2dcdb47bd91c8f74a8b1c828364aa02d,
         type: 3}
       propertyPath: m_Offset.y
-      value: -0.02039965
+      value: 0.4037037
       objectReference: {fileID: 0}
     - target: {fileID: -7578508283424546980, guid: 2dcdb47bd91c8f74a8b1c828364aa02d,
         type: 3}
       propertyPath: m_Size.y
-      value: 0.7597388
+      value: 0.7846303
       objectReference: {fileID: 0}
     - target: {fileID: -7578508283424546980, guid: 2dcdb47bd91c8f74a8b1c828364aa02d,
         type: 3}
       propertyPath: m_Offset.x
-      value: 0.01964452
+      value: -0.018228754
       objectReference: {fileID: 0}
     - target: {fileID: -7578508283424546980, guid: 2dcdb47bd91c8f74a8b1c828364aa02d,
         type: 3}
       propertyPath: m_Size.x
-      value: 0.40361926
+      value: 0.32787272
       objectReference: {fileID: 0}
     - target: {fileID: 5770874031925703931, guid: 2dcdb47bd91c8f74a8b1c828364aa02d,
         type: 3}
@@ -2593,7 +2593,7 @@ PrefabInstance:
     - target: {fileID: 5770874031925703931, guid: 2dcdb47bd91c8f74a8b1c828364aa02d,
         type: 3}
       propertyPath: m_GravityScale
-      value: 1.7
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 5770874031925703931, guid: 2dcdb47bd91c8f74a8b1c828364aa02d,
         type: 3}
@@ -2605,5 +2605,36 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: 971a68fb94131d242800442cb8628f4c, type: 2}
+    - target: {fileID: 5770874031925703931, guid: 2dcdb47bd91c8f74a8b1c828364aa02d,
+        type: 3}
+      propertyPath: m_UseAutoMass
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4040309320983829887, guid: 2dcdb47bd91c8f74a8b1c828364aa02d,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.8125
+      objectReference: {fileID: 0}
+    - target: {fileID: 4040309320983829887, guid: 2dcdb47bd91c8f74a8b1c828364aa02d,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4040309320983829887, guid: 2dcdb47bd91c8f74a8b1c828364aa02d,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -8401692288953904933, guid: f8cb32ff104e7304a9b3cfc759b5c3dc,
+        type: 3}
+    - target: {fileID: 4040309320983829887, guid: 2dcdb47bd91c8f74a8b1c828364aa02d,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -820285769
+      objectReference: {fileID: 0}
+    - target: {fileID: 4040309320983829887, guid: 2dcdb47bd91c8f74a8b1c828364aa02d,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2dcdb47bd91c8f74a8b1c828364aa02d, type: 3}

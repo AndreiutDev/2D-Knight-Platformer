@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+
+    float groundHeight = 0;
     //Config
     [SerializeField] float playerSpeed;
     [SerializeField] float jumpForce;
@@ -54,16 +56,40 @@ public class Player : MonoBehaviour
         {
             playerAnimator.SetTrigger("Dying");
             isAlive = false;
+
+            playerAnimator.SetBool("isJumping", false);
+            
+            deathKick.x = deathKick.x * Mathf.Sign(transform.localScale.x) * (-1);
             playerRigidbody.velocity = deathKick;
         }
     }
     public void Jump()
     {
-        if (playerFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) { canJump=true; }
+        
+        if (playerFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) 
+        { 
+            canJump=true;
+            groundHeight = playerRigidbody.velocity.y; 
+            playerAnimator.SetBool("isJumping", false);
+        }
+        else
+        {
+
+            playerAnimator.SetBool("isJumping", true);
+        }
+        if (playerRigidbody.velocity.y < -0.1)
+        {
+            playerAnimator.SetBool("isFalling", true);
+        }
+        else
+        {
+            playerAnimator.SetBool("isFalling", false);
+        }
 
         if (Input.GetButtonDown("Jump") && canJump == true)
         {
             canJump = false;
+
             playerRigidbody.velocity = new Vector2(0f, jumpForce);
         }
     }
