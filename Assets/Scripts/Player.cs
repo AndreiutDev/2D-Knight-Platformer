@@ -52,7 +52,7 @@ public class Player : MonoBehaviour
     }
     private void Die()
     {
-        if (playerBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemy")))
+        if (playerBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemy")) || playerBodyCollider.IsTouchingLayers(LayerMask.GetMask("Hazards")))
         {
             playerAnimator.SetTrigger("Dying");
             isAlive = false;
@@ -77,15 +77,6 @@ public class Player : MonoBehaviour
 
             playerAnimator.SetBool("isJumping", true);
         }
-        if (playerRigidbody.velocity.y < -0.1)
-        {
-            playerAnimator.SetBool("isFalling", true);
-        }
-        else
-        {
-            playerAnimator.SetBool("isFalling", false);
-        }
-
         if (Input.GetButtonDown("Jump") && canJump == true)
         {
             canJump = false;
