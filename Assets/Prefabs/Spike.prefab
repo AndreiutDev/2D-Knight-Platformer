@@ -70,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1070442243
-  m_SortingLayer: 6
+  m_SortingLayerID: 1844571191
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -7836376798481834204, guid: 779c42ed9ca411847a63184c8c52198b,
     type: 3}
@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbd240b4500741140a519b14427f22f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spikeEmergeDistance: 2
+  spikeEmergeDistance: 3
   playerTransform: {fileID: 0}
   spikeAnimator: {fileID: 0}
 --- !u!61 &5632258184013459478
