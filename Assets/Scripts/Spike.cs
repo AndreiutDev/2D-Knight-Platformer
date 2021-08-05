@@ -14,7 +14,6 @@ public class Spike : MonoBehaviour
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         spikeAnimator = GetComponent<Animator>();
-        
     }
 
     void Update()

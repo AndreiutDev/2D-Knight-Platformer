@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Beshroom : MonoBehaviour
+public class BeeShroom : MonoBehaviour
 {
     //Cached component references
     public Transform playerTransform;
@@ -20,11 +20,7 @@ public class Beshroom : MonoBehaviour
 
     void Update()
     {
-        if (Vector2.Distance(playerTransform.position, transform.position) < chaseDistance && Vector2.Distance(playerTransform.position, transform.position) > arrivalDistance)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, flyingSpeed * Time.deltaTime);
-            transform.localScale = new Vector2((Mathf.Sign((transform.position - playerTransform.position).normalized.x)) * 2f, 2f);
-        }
+        
         
     }
 }

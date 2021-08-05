@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
         Run();
         Jump();
         FlipPlayer();
-        Die();
+        //Die();
     }
 
     public void Run()
@@ -74,7 +74,6 @@ public class Player : MonoBehaviour
         }
         else
         {
-
             playerAnimator.SetBool("isJumping", true);
         }
         if (Input.GetButtonDown("Jump") && canJump == true)

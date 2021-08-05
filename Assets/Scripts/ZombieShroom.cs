@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shroom_Behaviour : MonoBehaviour
+public class ZombieShroom : HostileCreature
 {
     //Config
     [SerializeField] float moveSpeed = 1f;
@@ -18,9 +18,7 @@ public class Shroom_Behaviour : MonoBehaviour
         rigidbody2D = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
-
-    // Update is called once per frame
-    void Update()
+    public override void Behaviour()
     {
         if (restTime < 0)
         {
@@ -41,7 +39,10 @@ public class Shroom_Behaviour : MonoBehaviour
             rigidbody2D.velocity = new Vector2(0f, 0f);
             anim.Play("Shroom_Idle");
         }
-        
+    }
+    void Update()
+    {
+        Behaviour();
     }
 
     bool isFacingRight()
