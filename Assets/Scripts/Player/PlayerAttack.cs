@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    private float timeBetweenAttack;
-    public float startTimeBetweenAttacks;
+    [SerializeField]
+    private PlayerWeapon playerWeapon;
 
+    internal float timeBetweenAttack;
+    internal float startTimeBetweenAttacks;
+    float animationDuration;
     public Transform attackPosition;
     public float attackRange;
     public LayerMask whichAreTheEnemies;
@@ -16,14 +19,13 @@ public class PlayerAttack : MonoBehaviour
     {
         if (timeBetweenAttack <= 0)
         {
-            if (Input.GetKey(KeyCode.C))
+            if (Input.GetKeyDown(KeyCode.F))
             {
-                Debug.Log("Attacked!");
+                playerWeapon.animator.SetTrigger("Attack_1");
                 Collider2D[] enemiesInRangeOfTheAttack = Physics2D.OverlapCircleAll(attackPosition.position, attackRange, whichAreTheEnemies);
-                Debug.Log(enemiesInRangeOfTheAttack);
                 for(int i = 0; i < enemiesInRangeOfTheAttack.Length; i++)
                 {
-                    enemiesInRangeOfTheAttack[i].GetComponent<HostileCreature>().TakeDamage(damage);
+                    StartCoroutine(enemiesInRangeOfTheAttack[i].GetComponent<HostileCreature>().InvokeTakeDamageWithDelay(damage));
                 }
             }
             timeBetweenAttack = startTimeBetweenAttacks;

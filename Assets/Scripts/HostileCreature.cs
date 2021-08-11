@@ -5,16 +5,16 @@ using UnityEngine;
 public abstract class HostileCreature : MonoBehaviour
 {
     public int health;
-    public float speed;
-    public abstract void Behaviour();
-    public void TakeDamage(int damage)
+    void Start()
     {
-        if (health <= 0)
-        {
-            Destroy(gameObject);
-        }
-        health -= damage;
-        Debug.Log("Damage Taken!");
-    }
 
+    }
+    public abstract void Behaviour();
+    public abstract void TakeDamage(int damage);
+
+    public IEnumerator InvokeTakeDamageWithDelay(int damage)
+    {
+        yield return new WaitForSeconds(0.1f);
+        TakeDamage(damage);
+    }
 }

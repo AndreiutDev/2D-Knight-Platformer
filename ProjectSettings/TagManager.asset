@@ -50,9 +50,12 @@ TagManager:
   - name: Player
     uniqueID: 3474681527
     locked: 0
+  - name: Weapon
+    uniqueID: 3946960941
+    locked: 0
   - name: Hazards
     uniqueID: 1844571191
     locked: 0
-  - name: Enemy
+  - name: Items
     uniqueID: 1070442243
     locked: 0

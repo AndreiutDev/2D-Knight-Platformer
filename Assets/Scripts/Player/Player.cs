@@ -4,11 +4,23 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    //references to sub player components
+    [SerializeField]
+    internal PlayerInput playerInput;
+
+    [SerializeField]
+    internal PlayerMovement playerMovement;
+
+    [SerializeField]
+    internal PlayerCollision playerCollision;
+
+    [SerializeField]
+    internal PlayerAttack playerAttack;
 
     float groundHeight = 0;
     //Config
-    [SerializeField] float playerSpeed;
-    [SerializeField] float jumpForce;
+    [SerializeField] internal float playerSpeed = 0;
+    [SerializeField] internal float jumpForce = 0;
     [SerializeField] Vector2 deathKick = new Vector2(0.1f, 0.1f);
 
     //State
@@ -16,10 +28,10 @@ public class Player : MonoBehaviour
     bool canJump = false;
 
     //Cached component references
-    private Animator playerAnimator;
-    private Rigidbody2D playerRigidbody;
-    private CapsuleCollider2D playerBodyCollider;
-    private BoxCollider2D playerFeetCollider;
+    internal Animator playerAnimator;
+    internal Rigidbody2D playerRigidbody;
+    internal CapsuleCollider2D playerBodyCollider;
+    internal BoxCollider2D playerFeetCollider;
 
     //Initialization
     void Start()
@@ -41,18 +53,9 @@ public class Player : MonoBehaviour
         //Die();
     }
 
-    public void Run()
-    {
-        float controls = Input.GetAxis("Horizontal");
-        Vector2 playerVelocity = new Vector2(controls * playerSpeed, playerRigidbody.velocity.y);
-        playerRigidbody.velocity = playerVelocity;
-
-        bool hasHorizontalSpeed = (Mathf.Abs(playerRigidbody.velocity.x) > Mathf.Epsilon);
-        playerAnimator.SetBool("isRunning", hasHorizontalSpeed);
-    }
     private void Die()
     {
-        if (playerBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemy")) || playerBodyCollider.IsTouchingLayers(LayerMask.GetMask("Hazards")))
+        if (playerCollision.isTouchingEnemy || playerCollision.isTouchingHazards)
         {
             playerAnimator.SetTrigger("Dying");
             isAlive = false;
@@ -63,12 +66,18 @@ public class Player : MonoBehaviour
             playerRigidbody.velocity = deathKick;
         }
     }
+    public void Run()
+    {
+        playerMovement.MoveOnTheXAxis();
+
+        bool hasHorizontalSpeed = (Mathf.Abs(playerRigidbody.velocity.x) > Mathf.Epsilon);
+        playerAnimator.SetBool("isRunning", hasHorizontalSpeed);
+    }
     public void Jump()
     {
-        
-        if (playerFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) 
+        if (playerCollision.isTouchingGround) 
         { 
-            canJump=true;
+            canJump = true;
             groundHeight = playerRigidbody.velocity.y; 
             playerAnimator.SetBool("isJumping", false);
         }
@@ -76,11 +85,10 @@ public class Player : MonoBehaviour
         {
             playerAnimator.SetBool("isJumping", true);
         }
-        if (Input.GetButtonDown("Jump") && canJump == true)
+        if (playerInput.isJumpPressed && canJump == true)
         {
+            playerMovement.MoveOnTheYAxis();
             canJump = false;
-
-            playerRigidbody.velocity = new Vector2(0f, jumpForce);
         }
     }
     public void FlipPlayer()
@@ -90,5 +98,17 @@ public class Player : MonoBehaviour
         {
             transform.localScale = new Vector2(Mathf.Sign(playerRigidbody.velocity.x) * 2f, 2f);
         }
+    }
+    public bool IsPlayerFacingRight()
+    {
+        if (transform.localScale.x > 0)
+            return true;
+        return false;
+    }
+    public bool IsPlayerFacingLeft()
+    {
+        if (transform.localScale.x < 0)
+            return false;
+        return true;
     }
 }
