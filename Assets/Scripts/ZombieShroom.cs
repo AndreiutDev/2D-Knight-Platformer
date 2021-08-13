@@ -5,9 +5,9 @@ using UnityEngine;
 public class ZombieShroom : HostileCreature
 {
     //Config
-    [SerializeField] float moveSpeed = 1f;
+    [SerializeField] float moveSpeed = 4f;
     [SerializeField] float restTime = 1f;
-    [SerializeField] float hurtDuration = 0.5f;
+    [SerializeField] float dazzleTime = 0.5f;
 
     //Cached component references
     Rigidbody2D rigidbody2D;
@@ -18,18 +18,19 @@ public class ZombieShroom : HostileCreature
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        animator.SetFloat("speed", moveSpeed);
     }
     public override void TakeDamage(int damage)
     {
         animator.SetTrigger("hurt");
-        hurtDuration = 0.6f;
+        
+        dazzleTime = 0.8f;
 
         if (health <= 0)
         {
             Destroy(gameObject);
         }
         health -= damage;
-        Debug.Log("Damage Taken!");
     }
     public override void Behaviour()
     {
@@ -37,14 +38,13 @@ public class ZombieShroom : HostileCreature
         {
             if (isFacingRight())
             {
-                rigidbody2D.velocity = new Vector2(moveSpeed, 0f);
-                animator.Play("Shroom_Walking");
+                MoveRight();
             }
             else
             {
-                rigidbody2D.velocity = new Vector2(-moveSpeed, 0f);
-                animator.Play("Shroom_Walking");
+                MoveLeft();
             }
+            animator.Play("Shroom_Walking");
         }
         else
         {
@@ -52,23 +52,33 @@ public class ZombieShroom : HostileCreature
             rigidbody2D.velocity = new Vector2(0f, 0f);
             animator.Play("Shroom_Idle");
         }
-        if (Input.GetKey(KeyCode.A))
-        {
-            animator.SetTrigger("hurt");
-        }
     }
     void Update()
     {
-        if (hurtDuration <= 0)
+        if (dazzleTime <= 0)
         {
             Behaviour();
         }
         else
         {
-            hurtDuration -= Time.deltaTime;
+            StopMoving();
+            restTime -= Time.deltaTime;
+            dazzleTime -= Time.deltaTime;
         }
     }
+    public void StopMoving()
+    {
+        rigidbody2D.velocity = new Vector2(0f, 0f);
+    }
 
+    void MoveRight()
+    {
+        rigidbody2D.velocity = new Vector2(moveSpeed, 0f);
+    }
+    public void MoveLeft()
+    {
+        rigidbody2D.velocity = new Vector2(-moveSpeed, 0f);
+    }
     bool isFacingRight()
     {
         return transform.localScale.x > 0;

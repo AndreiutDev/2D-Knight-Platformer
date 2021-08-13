@@ -6,10 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
     Player player;
-    void Start()
-    {
-        print("Player movement is starting!");
-    }
+
     public void MoveOnTheXAxis()
     {
         player.playerRigidbody.velocity = new Vector2(player.playerInput.xAxisMovement * player.playerSpeed, player.playerRigidbody.velocity.y);

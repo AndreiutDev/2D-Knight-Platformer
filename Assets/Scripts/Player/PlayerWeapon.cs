@@ -4,19 +4,17 @@ using UnityEngine;
 
 public class PlayerWeapon : MonoBehaviour
 {
-    public Player player;
-    private string currentAnimation;
+    [SerializeField]
+    private Player player;
 
+    public Transform attackPosition;
+    public float attackRange;
 
-    private float animationDuration;
     public Animator animator;
+    public SpriteRenderer spriteRenderer;
     public void Start()
     {
         animator = gameObject.GetComponent<Animator>();
-    }
-    float time = 0;
-    void FixedUpdate()
-    {
-
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
 }
