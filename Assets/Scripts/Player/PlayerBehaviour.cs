@@ -8,12 +8,12 @@ public class PlayerBehaviour : MonoBehaviour
     Player player;
 
     internal float timeBetweenAttack;
-    internal float startTimeBetweenAttacks;
+    [SerializeField]
+    internal float startTimeBetweenAttacks = 1f;
 
     public LayerMask whichAreTheEnemies;
 
     public int damage;
-    private float jumpTimeCounter = 2f;
 
     public void Attack()
     {
@@ -21,7 +21,7 @@ public class PlayerBehaviour : MonoBehaviour
         {
             if (timeBetweenAttack <= 0)
             {
-                if (Input.GetKeyDown(KeyCode.F))
+                if (player.playerInput.isAttackPressed)
                 {
                     player.playerWeapon.animator.SetTrigger("Attack_1");
                     Collider2D[] enemiesInRangeOfTheAttack = Physics2D.OverlapCircleAll(player.playerWeapon.attackPosition.position, player.playerWeapon.attackRange, whichAreTheEnemies);
@@ -29,14 +29,18 @@ public class PlayerBehaviour : MonoBehaviour
                     {
                         StartCoroutine(enemiesInRangeOfTheAttack[i].GetComponent<HostileCreature>().InvokeTakeDamageWithDelay(damage));
                     }
+                    timeBetweenAttack = startTimeBetweenAttacks;
                 }
-                timeBetweenAttack = startTimeBetweenAttacks;
             }
             else
             {
                 timeBetweenAttack -= Time.deltaTime;
             }
         }
+    }
+    public void Hurt()
+    {
+
     }
     public void Run()
     {

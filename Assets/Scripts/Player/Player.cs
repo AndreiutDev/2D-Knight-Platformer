@@ -44,7 +44,6 @@ public class Player : MonoBehaviour
         playerBodyCollider = GetComponent<CapsuleCollider2D>();
         playerFeetCollider = GetComponent<BoxCollider2D>();
     }
-
     // Update is called once per frame
     void Update()
     {

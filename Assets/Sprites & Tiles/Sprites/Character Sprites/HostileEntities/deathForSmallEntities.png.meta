@@ -1,22 +1,19 @@
 fileFormatVersion: 2
-guid: c10a96ddafdf05e4aafccf2e7a0ceaf7
+guid: 60f99dc2a1b9f3c4e90b28cbb7a9da06
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1090749300528381319
-    second: EmeraldSword 1_0
+      213: -7337867192936302626
+    second: deathForSmallEntities_0
   - first:
-      213: -6511475542156436908
-    second: EmeraldSword 1_1
+      213: 2055725900787729306
+    second: deathForSmallEntities_1
   - first:
-      213: 2135488117205278993
-    second: EmeraldSword 1_2
+      213: -911790708758465663
+    second: deathForSmallEntities_3
   - first:
-      213: 4952981793667653778
-    second: EmeraldSword 1_3
-  - first:
-      213: 3795191984282203136
-    second: EmeraldSword 1_4
+      213: -3100625170594558401
+    second: deathForSmallEntities_4
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -101,85 +98,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: EmeraldSword 1_0
+      name: deathForSmallEntities_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 577
-        width: 18
+        x: 26
+        y: 135
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56a2d7fe859e1844c9db71499602aca9
+      internalID: -7337867192936302626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deathForSmallEntities_1
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 135
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55fa9774acb234a47b9287439e13d53d
+      internalID: 2055725900787729306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deathForSmallEntities_3
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 135
+        width: 32
         height: 18
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6063368826faaca42820cb611bfd5e51
-      internalID: 1090749300528381319
+      spriteID: ec65f1d81bbed844788c3ac96fc0ce7b
+      internalID: -911790708758465663
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EmeraldSword 1_1
+      name: deathForSmallEntities_4
       rect:
         serializedVersion: 2
-        x: 37
-        y: 576
-        width: 19
-        height: 21
+        x: 19
+        y: 50
+        width: 28
+        height: 13
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0740752df4eb4c448471c345ad14335
-      internalID: -6511475542156436908
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: EmeraldSword 1_2
-      rect:
-        serializedVersion: 2
-        x: 68
-        y: 576
-        width: 18
-        height: 20
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 967717c7f1b36c44197bba940b240585
-      internalID: 2135488117205278993
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: EmeraldSword 1_3
-      rect:
-        serializedVersion: 2
-        x: 239
-        y: 537
-        width: 50
-        height: 46
-      alignment: 9
-      pivot: {x: 0.41693258, y: 0.4667728}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2dd7e30d832dbfe42aa3d9a98d122d93
-      internalID: 4952981793667653778
+      spriteID: 69ec95e082f7f2147b7bbc37ba17a5be
+      internalID: -3100625170594558401
       vertices: []
       indices: 
       edges: []

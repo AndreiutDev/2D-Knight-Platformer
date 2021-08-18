@@ -17,7 +17,7 @@ public class PlayerInput : MonoBehaviour
     public void Update()
     {
         xAxisMovement = Input.GetAxis("Horizontal");
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             isJumpPressed = true;
         }
@@ -25,7 +25,7 @@ public class PlayerInput : MonoBehaviour
         {
             isJumpPressed = false;
         }
-        if (Input.GetKey(KeyCode.G))
+        if (Input.GetKeyDown(KeyCode.J))
         {
             isAttackPressed = true;
         }
