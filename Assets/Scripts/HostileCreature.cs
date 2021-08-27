@@ -4,17 +4,17 @@ using UnityEngine;
 
 public abstract class HostileCreature : MonoBehaviour
 {
-    public int health;
-    void Start()
-    {
+    [SerializeField]
+    private GameObject deathParticles;
+    [SerializeField]
+    private Vector3 deathParticlesOffset;
 
-    }
+    public int health;
     public abstract void Behaviour();
     public abstract void TakeDamage(int damage);
-
-    public IEnumerator InvokeTakeDamageWithDelay(int damage)
+    public void Die()
     {
-        yield return new WaitForSeconds(0.1f);
-        TakeDamage(damage);
+        Instantiate(deathParticles, this.transform.position + deathParticlesOffset, Quaternion.identity);
+        Destroy(gameObject);
     }
 }

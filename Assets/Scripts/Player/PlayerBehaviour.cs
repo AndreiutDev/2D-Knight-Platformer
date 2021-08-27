@@ -13,8 +13,17 @@ public class PlayerBehaviour : MonoBehaviour
 
     public LayerMask whichAreTheEnemies;
 
-    public int damage;
 
+
+    public int damage;
+    public void CheckForInRangeEnemiesAndDealDamage()
+    {
+        Collider2D[] enemiesInRangeOfTheAttack = Physics2D.OverlapCircleAll(player.playerWeapon.attackPosition.position, player.playerWeapon.attackRange, whichAreTheEnemies);
+        for (int i = 0; i < enemiesInRangeOfTheAttack.Length; i++)
+        {
+            enemiesInRangeOfTheAttack[i].GetComponent<HostileCreature>().TakeDamage(damage);
+        }
+    }
     public void Attack()
     {
         if (player.isAlive)
@@ -24,11 +33,7 @@ public class PlayerBehaviour : MonoBehaviour
                 if (player.playerInput.isAttackPressed)
                 {
                     player.playerWeapon.animator.SetTrigger("Attack_1");
-                    Collider2D[] enemiesInRangeOfTheAttack = Physics2D.OverlapCircleAll(player.playerWeapon.attackPosition.position, player.playerWeapon.attackRange, whichAreTheEnemies);
-                    for (int i = 0; i < enemiesInRangeOfTheAttack.Length; i++)
-                    {
-                        StartCoroutine(enemiesInRangeOfTheAttack[i].GetComponent<HostileCreature>().InvokeTakeDamageWithDelay(damage));
-                    }
+                    Invoke("CheckForInRangeEnemiesAndDealDamage", 0.15f);
                     timeBetweenAttack = startTimeBetweenAttacks;
                 }
             }
@@ -69,7 +74,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (player.playerCollision.isTouchingEnemy || player.playerCollision.isTouchingHazards)
         {
-            player.playerWeapon.animator.SetTrigger("Death");
+            player.playerWeapon.animator.SetTrigger("death");
             player.playerAnimator.SetTrigger("Dying");
             player.isAlive = false;
 
@@ -77,7 +82,6 @@ public class PlayerBehaviour : MonoBehaviour
 
             player.deathKick.x = player.deathKick.x * Mathf.Sign(transform.localScale.x) * (-1);
             player.playerRigidbody.velocity = player.deathKick;
-           
         }
     }
     public void FlipPlayer()

@@ -10,10 +10,6 @@ public class PlayerInput : MonoBehaviour
     internal float xAxisMovement;
     internal bool isJumpPressed;
     internal bool isAttackPressed;
-    private void Start()
-    {
-        Debug.Log("Player Starts inputing!");
-    }
     public void Update()
     {
         xAxisMovement = Input.GetAxis("Horizontal");

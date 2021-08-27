@@ -22,16 +22,17 @@ public class ZombieShroom : HostileCreature
     }
     public override void TakeDamage(int damage)
     {
-        Debug.Log("Damage taken!");
         animator.SetTrigger("hurt");
         
         dazzleTime = 0.8f;
+        Debug.Log(damage);
+        health -= damage;
 
         if (health <= 0)
         {
-            Destroy(gameObject);
+            Die();
         }
-        health -= damage;
+       
     }
     public override void Behaviour()
     {
