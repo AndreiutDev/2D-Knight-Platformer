@@ -48,7 +48,10 @@ public class Player : MonoBehaviour
     void Update()
     {
         if (!isAlive) { return; }
-
+        if (playerInput.isAttackPressed)
+        {
+            Debug.Log("Attacked");
+        }
         playerBehaviour.Run();
         playerBehaviour.Jump();
         playerBehaviour.FlipPlayer();

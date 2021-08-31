@@ -13,8 +13,6 @@ public class PlayerBehaviour : MonoBehaviour
 
     public LayerMask whichAreTheEnemies;
 
-
-
     public int damage;
     public void CheckForInRangeEnemiesAndDealDamage()
     {

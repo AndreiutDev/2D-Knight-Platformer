@@ -156,13 +156,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b9b4c5d7a1707845b8bae8645a00f42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 1
+  dazzleTime: 0.5
   deathParticles: {fileID: 2650430007885979250, guid: dc237e5335406b343abf8bf50083babd,
     type: 3}
   deathParticlesOffset: {x: -0.35, y: 0.7, z: 0}
-  health: 1000
-  moveSpeed: 1
+  damagePopupOffset: {x: 0, y: 1, z: 0}
+  health: 100
   restTime: 1
-  dazzleTime: 0.5
 --- !u!61 &24699936944815845
 BoxCollider2D:
   m_ObjectHideFlags: 0

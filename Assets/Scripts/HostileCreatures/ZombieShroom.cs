@@ -4,35 +4,22 @@ using UnityEngine;
 
 public class ZombieShroom : HostileCreature
 {
-    //Config
-    [SerializeField] float moveSpeed = 4f;
+
     [SerializeField] float restTime = 1f;
-    [SerializeField] float dazzleTime = 0.5f;
 
-    //Cached component references
-    Rigidbody2D rigidbody2D;
-    Animator animator;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        rigidbody2D = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-        animator.SetFloat("speed", moveSpeed);
-    }
     public override void TakeDamage(int damage)
     {
+        PopupManager.InstantiateDamagePopup(this.transform, damagePopupOffset, damage);
         animator.SetTrigger("hurt");
-        
+                                                                                                                                                                                                                                                
         dazzleTime = 0.8f;
-        Debug.Log(damage);
+
         health -= damage;
 
         if (health <= 0)
         {
             Die();
         }
-       
     }
     public override void Behaviour()
     {
@@ -55,7 +42,7 @@ public class ZombieShroom : HostileCreature
             animator.Play("Shroom_Idle");
         }
     }
-    void Update()
+    void FixedUpdate()
     {
         if (dazzleTime <= 0)
         {
@@ -67,23 +54,6 @@ public class ZombieShroom : HostileCreature
             restTime -= Time.deltaTime;
             dazzleTime -= Time.deltaTime;
         }
-    }
-    public void StopMoving()
-    {
-        rigidbody2D.velocity = new Vector2(0f, 0f);
-    }
-
-    void MoveRight()
-    {
-        rigidbody2D.velocity = new Vector2(moveSpeed, 0f);
-    }
-    public void MoveLeft()
-    {
-        rigidbody2D.velocity = new Vector2(-moveSpeed, 0f);
-    }
-    bool isFacingRight()
-    {
-        return transform.localScale.x > 0;
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
