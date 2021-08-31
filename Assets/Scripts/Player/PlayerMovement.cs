@@ -12,6 +12,6 @@ public class PlayerMovement : MonoBehaviour
     }
     public void MoveOnTheYAxis()
     {
-        player.playerRigidbody.velocity = new Vector2(0f, player.jumpForce);
+        player.playerRigidbody.velocity = new Vector2(player.playerInput.xAxisMovement * player.playerSpeed, player.jumpForce);
     }
 }

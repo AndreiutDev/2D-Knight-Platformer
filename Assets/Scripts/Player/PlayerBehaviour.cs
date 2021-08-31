@@ -11,6 +11,11 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField]
     internal float startTimeBetweenAttacks = 1f;
 
+    internal float jumpTimer;
+    [SerializeField]
+    internal float startJumpTimer = 1f;
+    internal bool isJumping;
+
     public LayerMask whichAreTheEnemies;
 
     public int damage;
@@ -56,11 +61,28 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (player.playerInput.isJumpPressed && player.playerCollision.isTouchingGround)
         {
+            isJumping = true;
+            jumpTimer = startJumpTimer;
             player.playerMovement.MoveOnTheYAxis();
+        }
+        if (player.playerInput.isJumpPressed && isJumping == true)
+        {
+            if (jumpTimer > 0)
+            {
+                player.playerMovement.MoveOnTheYAxis();
+                jumpTimer -= Time.deltaTime;
+            }
+            else
+            {
+                isJumping = false;
+            }
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            isJumping = false;
         }
         if (player.playerCollision.isTouchingGround)
         {
-           
             player.playerAnimator.SetBool("isJumping", false);
         }
         else
