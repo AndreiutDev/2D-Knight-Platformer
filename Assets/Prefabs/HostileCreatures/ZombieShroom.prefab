@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 24699936944815847}
   - component: {fileID: 24699936944815844}
   - component: {fileID: 24699936944815845}
+  - component: {fileID: 5687305885330876171}
   m_Layer: 9
   m_Name: ZombieShroom
   m_TagString: Untagged
@@ -156,6 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b9b4c5d7a1707845b8bae8645a00f42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hostileCreatureAnimationManager: {fileID: 5687305885330876171}
   moveSpeed: 1
   dazzleTime: 0.5
   deathParticles: {fileID: 2650430007885979250, guid: dc237e5335406b343abf8bf50083babd,
@@ -190,3 +192,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.07480052, y: 0.6854736}
   m_EdgeRadius: 0
+--- !u!114 &5687305885330876171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24699936944815842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab14787e5743eb4c8c494d9b51b4152, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hostileCreature: {fileID: 24699936944815844}

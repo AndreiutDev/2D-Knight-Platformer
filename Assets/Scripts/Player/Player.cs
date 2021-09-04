@@ -15,9 +15,10 @@ public class Player : MonoBehaviour
     internal PlayerCollision playerCollision;
 
     [SerializeField]
-    internal PlayerBehaviour playerBehaviour;
+    internal PlayerActions playerActions;
 
     internal float groundHeight = 0;
+
     //Config
     [SerializeField] internal float playerSpeed = 0;
     [SerializeField] internal float jumpForce = 0;
@@ -36,7 +37,6 @@ public class Player : MonoBehaviour
     internal CapsuleCollider2D playerBodyCollider;
     internal BoxCollider2D playerFeetCollider;
 
-    //Initialization
     void Start()
     {
         playerAnimator = GetComponent<Animator>();
@@ -44,18 +44,13 @@ public class Player : MonoBehaviour
         playerBodyCollider = GetComponent<CapsuleCollider2D>();
         playerFeetCollider = GetComponent<BoxCollider2D>();
     }
-    // Update is called once per frame
     void Update()
     {
         if (!isAlive) { return; }
-        if (playerInput.isAttackPressed)
-        {
-            Debug.Log("Attacked");
-        }
-        playerBehaviour.Run();
-        playerBehaviour.Jump();
-        playerBehaviour.FlipPlayer();
-        playerBehaviour.Die();
-        playerBehaviour.Attack();
+        playerActions.Run();
+        playerActions.Jump();
+        playerActions.FlipPlayer();
+        playerActions.Die();
+        playerActions.Attack();
     }
 }

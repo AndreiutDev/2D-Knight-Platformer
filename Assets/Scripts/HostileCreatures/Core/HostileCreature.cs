@@ -4,18 +4,22 @@ using UnityEngine;
 
 public abstract class HostileCreature : MonoBehaviour
 {
-
+    //Animator
+    [SerializeField] protected HostileCreatureAnimationManager hostileCreatureAnimationManager;
+    
     //Config
-    [SerializeField] protected float moveSpeed = 4f;
+    [SerializeField] public float moveSpeed = 4f;
     [SerializeField] protected float dazzleTime = 0.5f;
-
+    
+    //Death
     [SerializeField] private GameObject deathParticles;
     [SerializeField] private Vector3 deathParticlesOffset;
+    
+    //Hurt
     [SerializeField] protected Vector3 damagePopupOffset;
 
     //Cached component references
     protected Rigidbody2D rigidbody2D;
-    protected Animator animator;
 
     [SerializeField]
     protected int health;
@@ -23,8 +27,6 @@ public abstract class HostileCreature : MonoBehaviour
     void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-        animator.SetFloat("speed", moveSpeed);
     }
  
     public abstract void Behaviour();

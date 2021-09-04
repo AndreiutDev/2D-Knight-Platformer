@@ -8,26 +8,11 @@ public class PlayerInput : MonoBehaviour
     Player player;
 
     internal float xAxisMovement;
-    internal bool isJumpPressed;
-    internal bool isAttackPressed;
-    public void Update()
+    internal bool isJumpPressed => Input.GetKey(KeyCode.Space) == true;
+    internal bool isAttackPressed => Input.GetKeyDown(KeyCode.J) == true;
+
+    private void Update()
     {
         xAxisMovement = Input.GetAxis("Horizontal");
-        if (Input.GetKey(KeyCode.Space))
-        {
-            isJumpPressed = true;
-        }
-        else
-        {
-            isJumpPressed = false;
-        }
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            isAttackPressed = true;
-        }
-        else
-        {
-            isAttackPressed = false;
-        }
     }
 }

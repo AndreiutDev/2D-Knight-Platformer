@@ -5334,7 +5334,7 @@ PrefabInstance:
     - target: {fileID: 5770874031925703931, guid: 2dcdb47bd91c8f74a8b1c828364aa02d,
         type: 3}
       propertyPath: m_GravityScale
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5770874031925703931, guid: 2dcdb47bd91c8f74a8b1c828364aa02d,
         type: 3}
@@ -5376,6 +5376,11 @@ PrefabInstance:
       propertyPath: playerWeapon
       value: 
       objectReference: {fileID: 754426780}
+    - target: {fileID: 5858763405099846520, guid: 2dcdb47bd91c8f74a8b1c828364aa02d,
+        type: 3}
+      propertyPath: playerActions
+      value: 
+      objectReference: {fileID: 8101401}
     - target: {fileID: 5858763405099846520, guid: 2dcdb47bd91c8f74a8b1c828364aa02d,
         type: 3}
       propertyPath: playerMovement

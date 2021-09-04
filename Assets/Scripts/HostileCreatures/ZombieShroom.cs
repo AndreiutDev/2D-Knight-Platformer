@@ -10,7 +10,7 @@ public class ZombieShroom : HostileCreature
     public override void TakeDamage(int damage)
     {
         PopupManager.InstantiateDamagePopup(this.transform, damagePopupOffset, damage);
-        animator.SetTrigger("hurt");
+        hostileCreatureAnimationManager.PlayHurtAnimation();
                                                                                                                                                                                                                                                 
         dazzleTime = 0.8f;
 
@@ -33,13 +33,13 @@ public class ZombieShroom : HostileCreature
             {
                 MoveLeft();
             }
-            animator.Play("Shroom_Walking");
+            hostileCreatureAnimationManager.PlayWalkingAnimation();
         }
         else
         {
             restTime -= Time.deltaTime;
-            rigidbody2D.velocity = new Vector2(0f, 0f);
-            animator.Play("Shroom_Idle");
+            StopMoving();
+            hostileCreatureAnimationManager.PlayIdleAnimation();
         }
     }
     void FixedUpdate()
