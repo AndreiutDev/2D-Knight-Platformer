@@ -11,8 +11,9 @@ public class ZombieShroom : HostileCreature
     {
         PopupManager.InstantiateDamagePopup(this.transform, damagePopupOffset, damage);
         hostileCreatureAnimationManager.PlayHurtAnimation();
-                                                                                                                                                                                                                                                
-        dazzleTime = 0.8f;
+
+        GetKnockedBack();
+        dazzleTime = 0.3f;
 
         health -= damage;
 
@@ -59,7 +60,7 @@ public class ZombieShroom : HostileCreature
     {
         if (collision.gameObject.layer == 8)
         {
-            restTime = 3f;
+            restTime = 2f;
             transform.localScale = new Vector2(-(Mathf.Sign(rigidbody2D.velocity.x)) * 1.5f, 1.5f);
         }
     }

@@ -53,6 +53,9 @@ TagManager:
   - name: Weapon
     uniqueID: 3946960941
     locked: 0
+  - name: HostileEntities
+    uniqueID: 169356225
+    locked: 0
   - name: Hazards
     uniqueID: 1844571191
     locked: 0

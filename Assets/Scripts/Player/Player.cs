@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
         playerActions.Run();
         playerActions.Jump();
         playerActions.FlipPlayer();
-        playerActions.Die();
+       // playerActions.Die();
         playerActions.Attack();
     }
 }

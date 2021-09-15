@@ -4,12 +4,15 @@ using UnityEngine;
 
 public abstract class HostileCreature : MonoBehaviour
 {
+    public Player player;
     //Animator
     [SerializeField] protected HostileCreatureAnimationManager hostileCreatureAnimationManager;
     
     //Config
     [SerializeField] public float moveSpeed = 4f;
     [SerializeField] protected float dazzleTime = 0.5f;
+    [SerializeField] protected Vector3 playerKnockback = new Vector3(3, 0, 0);
+    [SerializeField] protected float scale;
     
     //Death
     [SerializeField] private GameObject deathParticles;
@@ -49,6 +52,10 @@ public abstract class HostileCreature : MonoBehaviour
     {
         rigidbody2D.velocity = new Vector2(-moveSpeed, 0f);
     }
+    protected void ChangeWalkingDirection()
+    {
+        transform.localScale = new Vector2(-(Mathf.Sign(rigidbody2D.velocity.x)) * 2f, 2f);
+    }
     #endregion
     #region WhatDirectionIsThisEntityFacing
     protected bool isFacingRight()
@@ -58,6 +65,27 @@ public abstract class HostileCreature : MonoBehaviour
     protected bool isFacingLeft()
     {
         return transform.localScale.x < 0;
+    }
+    #endregion
+    #region PositionRelativeToThePlayer
+    protected bool isPlayerToTheLeft()
+    {
+        if (player.transform.position.x < transform.position.x)
+            return true;
+        return false;
+    }
+    protected bool isPlayerToTheRight()
+    {
+        if (player.transform.position.x > transform.position.x)
+            return true;
+        return false;
+    }
+    protected void GetKnockedBack()
+    {
+        if (isPlayerToTheLeft())
+            rigidbody2D.AddForce(Vector3.Scale(playerKnockback, new Vector3(1, 1, 0)), ForceMode2D.Impulse);
+        if (isPlayerToTheRight())
+            rigidbody2D.AddForce(Vector3.Scale(playerKnockback, new Vector3(-1, 1, 0)), ForceMode2D.Impulse);
     }
     #endregion
 }

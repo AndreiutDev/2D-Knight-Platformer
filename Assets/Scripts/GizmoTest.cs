@@ -8,9 +8,5 @@ public class GizmoTest : MonoBehaviour
     {
         
     }
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.white;
-        Gizmos.DrawWireSphere(this.transform.position, radius);
-    }
+  
 }
