@@ -12,7 +12,6 @@ public class ZombieShroom : HostileCreature
         PopupManager.InstantiateDamagePopup(this.transform, damagePopupOffset, damage);
         hostileCreatureAnimationManager.PlayHurtAnimation();
 
-        GetKnockedBack();
         dazzleTime = 0.3f;
 
         health -= damage;

@@ -13,6 +13,8 @@ public class WaterSlime : HostileCreature, IAttack
 
     public float attackCooldownTimer;
     public float attackCooldown;
+    public float attackDurationTimer;
+    public float attackDuration;
 
     public float walkTimeTimer;
     public float walkTime;
@@ -31,6 +33,7 @@ public class WaterSlime : HostileCreature, IAttack
     {
         if (attackCooldownTimer <= 0)
         {
+            attackDurationTimer = attackDuration;
             InitAttackJumpForce();
             if (isPlayerToTheLeft())
             {
@@ -48,7 +51,7 @@ public class WaterSlime : HostileCreature, IAttack
     public override void Behaviour()
     {
         hostileCreatureAnimationManager.PlayIdleAnimation();
-        if (!notice.isPlayerInRange)
+        if (attackDurationTimer <= 0)
         {
             if (walkTimeTimer < 0)
             {
@@ -69,6 +72,7 @@ public class WaterSlime : HostileCreature, IAttack
             Attack();
         }
         walkTimeTimer -= Time.deltaTime;
+        attackDurationTimer -= Time.deltaTime;
     }
     public override void TakeDamage(int damage)
     {

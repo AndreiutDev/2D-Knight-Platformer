@@ -14,4 +14,8 @@ public class PlayerMovement : MonoBehaviour
     {
         player.playerRigidbody.velocity = new Vector2(player.playerInput.xAxisMovement * player.playerSpeed, player.jumpForce);
     }
+    public void StopMoving()
+    {
+        player.playerRigidbody.velocity = new Vector2(0f, 0f);
+    }
 }

@@ -6,7 +6,7 @@ public class HostileCreatureAnimationManager : MonoBehaviour
 {
     [SerializeField] protected HostileCreature hostileCreature;
 
-    protected Animator animator;
+    public Animator animator;
     private void Start()
     {
         animator = GetComponent<Animator>();

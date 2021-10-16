@@ -17,7 +17,7 @@ TagManager:
   - Enemy
   - Player
   - Hazards
-  - 
+  - Platforms
   - 
   - 
   - 
@@ -44,6 +44,9 @@ TagManager:
   - name: Background
     uniqueID: 2364784791
     locked: 0
+  - name: Castle-Foreground
+    uniqueID: 538003823
+    locked: 0
   - name: Foreground
     uniqueID: 4197230723
     locked: 0
@@ -58,6 +61,9 @@ TagManager:
     locked: 0
   - name: Hazards
     uniqueID: 1844571191
+    locked: 0
+  - name: Platforms & Constructs
+    uniqueID: 1727072361
     locked: 0
   - name: Items
     uniqueID: 1070442243

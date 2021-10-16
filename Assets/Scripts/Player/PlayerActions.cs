@@ -16,8 +16,13 @@ public class PlayerActions : MonoBehaviour
     internal float startJumpTimer = 1f;
     internal bool isJumping;
 
-    public LayerMask whichAreTheEnemies;
+    [SerializeField]
+    internal float hurtTime;
+    [SerializeField]
+    internal float hurtTimer;
 
+    public LayerMask whichAreTheEnemies;
+    
     public int damage;
     public void CheckForInRangeEnemiesAndDealDamage()
     {
@@ -46,14 +51,24 @@ public class PlayerActions : MonoBehaviour
             }
         }
     }
+
     public void Hurt()
     {
-
+        if (player.playerCollision.isTouchingEnemy || player.playerCollision.isTouchingHazards)
+        {
+            if (player.immunity.isImmune == false)
+            {
+                player.health = player.health - 1;
+                player.immunity.GainImmunity();
+                hurtTimer = hurtTime;
+            } 
+        }
     }
     public void Run()
     {
-        player.playerMovement.MoveOnTheXAxis();
+         player.playerMovement.MoveOnTheXAxis();
 
+        
         bool hasHorizontalSpeed = (Mathf.Abs(player.playerRigidbody.velocity.x) > Mathf.Epsilon);
         player.playerAnimator.SetBool("isRunning", hasHorizontalSpeed);
     }
@@ -92,7 +107,7 @@ public class PlayerActions : MonoBehaviour
     }
     public void Die()
     {
-        if (player.playerCollision.isTouchingEnemy || player.playerCollision.isTouchingHazards)
+        if (player.health <= 0)
         {
             player.playerWeapon.animator.SetTrigger("death");
             player.playerAnimator.SetTrigger("Dying");
