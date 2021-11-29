@@ -71,8 +71,7 @@ public class Player : MonoBehaviour
     {
         if (other.transform.tag == "MovingGround")
         {
-            transform.parent.position = other.transform.position;
-            Debug.Log("We are on a moving platform");
+            Debug.Log(other.transform.position);
         }
     }
 
