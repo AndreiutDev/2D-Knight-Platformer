@@ -9,11 +9,7 @@ public class FlashMaterial : MonoBehaviour
 
     #region Editor Settings
 
-    [Tooltip("Material to switch to during the flash.")]
     [SerializeField] private Material flashMaterial;
-
-    [Tooltip("Duration of the flash.")]
-    [SerializeField] private float duration;
 
     #endregion
     #region Private Fields
@@ -43,25 +39,22 @@ public class FlashMaterial : MonoBehaviour
 
         originalMaterial = spriteRenderer.material;
 
-
         flashMaterial = new Material(flashMaterial);
     }
-
     #endregion
 
-    public void Flash(Color color)
+    public void Flash(Color color, float duration)
     {
 
         if (flashRoutine != null)
         {
-
             StopCoroutine(flashRoutine);
         }
 
-        flashRoutine = StartCoroutine(FlashRoutine(color));
+        flashRoutine = StartCoroutine(FlashRoutine(color, duration));
     }
 
-    private IEnumerator FlashRoutine(Color color)
+    private IEnumerator FlashRoutine(Color color, float duration)
     {
 
         spriteRenderer.material = flashMaterial;

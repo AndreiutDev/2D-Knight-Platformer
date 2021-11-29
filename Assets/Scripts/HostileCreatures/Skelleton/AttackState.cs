@@ -12,7 +12,6 @@ public class AttackState : State
     public bool hasAttacked = false;
     public override State RunCurrentState()
     {
-        Debug.Log("attacking");
         skelleton.StopMoving();
         attackDuration -= Time.deltaTime;
         if (attackDuration <= 0)

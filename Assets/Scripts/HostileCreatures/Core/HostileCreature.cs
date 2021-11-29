@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class HostileCreature : MonoBehaviour
 {
+    public HostileCreature self;
     public Player player;
     //Animator
     [SerializeField] protected HostileCreatureAnimationManager hostileCreatureAnimationManager;
@@ -24,15 +25,17 @@ public abstract class HostileCreature : MonoBehaviour
 
     //Cached component references
     public Rigidbody2D rigidbody2D;
+    public CapsuleCollider2D hostileEntityCollider;
 
     [SerializeField]
     protected int health;
-
+    public int damage;
     void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
+        hostileEntityCollider = GetComponent<CapsuleCollider2D>();
+        self = GetComponent<HostileCreature>();
     }
- 
     public abstract void Behaviour();
     public abstract void TakeDamage(int damage);
     public void Die()
@@ -58,11 +61,19 @@ public abstract class HostileCreature : MonoBehaviour
     }
     public void MoveRight()
     {
-        rigidbody2D.velocity = new Vector2(moveSpeed, 0f);
+        rigidbody2D.velocity = new Vector2(moveSpeed, rigidbody2D.velocity.y);
     }
     public void MoveLeft()
     {
-        rigidbody2D.velocity = new Vector2(-moveSpeed, 0f);
+        rigidbody2D.velocity = new Vector2(-moveSpeed, rigidbody2D.velocity.y);
+    }
+    public void MoveUp()
+    {
+        rigidbody2D.velocity = new Vector2(0f, moveSpeed);
+    }
+    public void MoveDown()
+    {
+        rigidbody2D.velocity = new Vector2(0f, -moveSpeed);
     }
     public void ChangeWalkingDirection()
     {
@@ -111,4 +122,11 @@ public abstract class HostileCreature : MonoBehaviour
             rigidbody2D.AddForce(Vector3.Scale(playerKnockback, new Vector3(-1, 1, 0)), ForceMode2D.Impulse);
     }
     #endregion
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.gameObject.layer == 10)
+        {
+            player.playerActions.attackingEnemy = this;
+        }
+    }
 }

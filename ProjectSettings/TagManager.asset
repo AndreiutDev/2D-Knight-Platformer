@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Ground
+  - MovingGround
   layers:
   - Default
   - TransparentFX
@@ -50,6 +52,9 @@ TagManager:
   - name: Foreground
     uniqueID: 4197230723
     locked: 0
+  - name: Decorations
+    uniqueID: 903515831
+    locked: 0
   - name: Player
     uniqueID: 3474681527
     locked: 0
@@ -65,9 +70,15 @@ TagManager:
   - name: Platforms & Constructs
     uniqueID: 1727072361
     locked: 0
+  - name: GroundGold
+    uniqueID: 4271079581
+    locked: 0
   - name: Items
     uniqueID: 1070442243
     locked: 0
   - name: Popup
     uniqueID: 2239121205
+    locked: 0
+  - name: Particles
+    uniqueID: 577469913
     locked: 0

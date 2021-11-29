@@ -9,6 +9,7 @@ public class Skelleton : HostileCreature, IAttack
     public Transform attackPosition;
     public float restTime = 1f;
     public bool isAttacking;
+
     public void Start()
     {
         flashMaterial = GetComponent<FlashMaterial>();
@@ -19,14 +20,13 @@ public class Skelleton : HostileCreature, IAttack
         if (isAttacking == true)
         {
             dazzleTime = 0.05f;
-            flashMaterial.Flash(new Color(255, 255, 255));
+            flashMaterial.Flash(new Color(255, 255, 255), 0.15f);
         }
         else
         {
             dazzleTime = 0.33f;
             hostileCreatureAnimationManager.PlayHurtAnimation();
         }
-
         
         knockbackTime = 0.15f;
 
@@ -55,10 +55,9 @@ public class Skelleton : HostileCreature, IAttack
         Collider2D[] enemiesInRangeOfTheAttack = Physics2D.OverlapCircleAll(attackPosition.position, 1.2f, whichIsThePlayer);
         if (enemiesInRangeOfTheAttack.Length != 0)
         {
-            player.health -= 1;
+            player.playerActions.isAttacked = true;
         }
         isAttacking = false;
-
     }
     public void Attack()
     {

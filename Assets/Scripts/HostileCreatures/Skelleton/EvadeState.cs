@@ -8,7 +8,7 @@ public class EvadeState : State
     public Skelleton skelleton;
     public ChaseState chaseState;
     public float evadeTimer;
-    public override State RunCurrentState()
+    void Evade()
     {
         evadeTimer -= Time.deltaTime;
         animationManager.PlayWalkingAnimation();
@@ -20,6 +20,10 @@ public class EvadeState : State
         {
             skelleton.MoveRight();
         }
+    }
+    public override State RunCurrentState()
+    {
+        Evade();  
         if (evadeTimer <= 0)
         {
             skelleton.moveSpeed -= 3.5f;

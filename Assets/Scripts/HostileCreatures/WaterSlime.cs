@@ -18,7 +18,7 @@ public class WaterSlime : HostileCreature, IAttack
 
     public float walkTimeTimer;
     public float walkTime;
-
+    //internal bool isTouchingGround => groundCollider.IsTouchingLayers(LayerMask.GetMask("Ground")) == true;
     void Awake()
     {
         notice = GetComponent<Notice>();
@@ -56,7 +56,7 @@ public class WaterSlime : HostileCreature, IAttack
             if (walkTimeTimer < 0)
             {
                 transform.localScale = Vector3.Scale(transform.localScale, new Vector3(-1, 1, 0));
-                walkTimeTimer = Random.Range(walkTime/2, walkTime);
+                walkTimeTimer = Random.Range(walkTime / 2, walkTime);
             }
             if (isFacingLeft())
             {

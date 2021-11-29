@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1070442243
-  m_SortingLayer: 9
+  m_SortingLayer: 10
   m_SortingOrder: 0
   m_Sprite: {fileID: -2643051324994869849, guid: 8ae099b9496ab444196facdd3f8a1e8b,
     type: 3}
@@ -157,18 +157,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b9b4c5d7a1707845b8bae8645a00f42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 4480495797858622473, guid: 2dcdb47bd91c8f74a8b1c828364aa02d, type: 3}
   hostileCreatureAnimationManager: {fileID: 7219255409331834852}
-  moveSpeed: 1
+  moveSpeed: 1.5
   dazzleTime: 0.5
+  knockbackTime: 0
   playerKnockback: {x: 1, y: 1, z: 0}
   scale: 1.6
   deathParticles: {fileID: 2650430007885979250, guid: dc237e5335406b343abf8bf50083babd,
     type: 3}
   deathParticlesOffset: {x: 0, y: 0.7, z: 0}
   damagePopupOffset: {x: 0, y: 1, z: 0}
+  rigidbody2D: {fileID: 0}
   health: 150
-  restTime: 1
+  damage: 0
+  restTime: 0.3
 --- !u!61 &7219255409331834855
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -208,3 +211,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hostileCreature: {fileID: 7219255409331834854}
+  animator: {fileID: 0}

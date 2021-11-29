@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 4690659906333625923}
   - component: {fileID: 4690659906333625920}
   - component: {fileID: 4690659906333625921}
+  - component: {fileID: 6376958700489958564}
+  - component: {fileID: 1688498606457178210}
   m_Layer: 9
   m_Name: beshroom
   m_TagString: Untagged
@@ -49,6 +51,8 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -71,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1070442243
-  m_SortingLayer: 6
+  m_SortingLayer: 10
   m_SortingOrder: 0
   m_Sprite: {fileID: -8350758024606701311, guid: 0600ce21c0d1f5248ab2dec900286f2a,
     type: 3}
@@ -132,11 +136,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 551e263a338590b42ad4951f20b3a56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 0}
-  beeshroomRigidbody: {fileID: 0}
-  flyingSpeed: 3
-  chaseDistance: 7
-  arrivalDistance: 2
+  player: {fileID: 4480495797858622473, guid: 2dcdb47bd91c8f74a8b1c828364aa02d, type: 3}
+  hostileCreatureAnimationManager: {fileID: 6376958700489958564}
+  moveSpeed: 4
+  dazzleTime: 0.3
+  knockbackTime: 0
+  playerKnockback: {x: 3, y: 0, z: 0}
+  scale: 0
+  deathParticles: {fileID: 2650430007885979250, guid: dc237e5335406b343abf8bf50083babd,
+    type: 3}
+  deathParticlesOffset: {x: 0, y: 0, z: 0}
+  damagePopupOffset: {x: 0, y: 0, z: 0}
+  rigidbody2D: {fileID: 0}
+  hostileEntityCollider: {fileID: 0}
+  health: 20
+  damage: 0
 --- !u!50 &4690659906333625921
 Rigidbody2D:
   serializedVersion: 4
@@ -158,3 +172,43 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6376958700489958564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4690659906333625935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab14787e5743eb4c8c494d9b51b4152, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hostileCreature: {fileID: 4690659906333625920}
+  animator: {fileID: 0}
+--- !u!61 &1688498606457178210
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4690659906333625935}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.06169367, y: 0.14758062}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 0.875, y: 0.78125}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.38790226, y: 0.05644989}
+  m_EdgeRadius: 0

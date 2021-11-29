@@ -17,10 +17,9 @@ public class ChaseState : State
 
     public float minDistance;
     public float chaseSpeedBoost;
-    public override State RunCurrentState()
+
+    void Chase()
     {
-        Debug.Log("Chase");
-        
         if (Mathf.Abs(skelleton.transform.position.x - skelleton.player.transform.position.x) > minDistance)
         {
             skelleton.Move();
@@ -31,7 +30,10 @@ public class ChaseState : State
         }
         animationManager.PlayWalkingAnimation();
         skelleton.ChangeDirectionRelativeToPlayer();
-
+    }
+    public override State RunCurrentState()
+    {
+        Chase();
         if (notice.isPlayerInAttackRange && attackCooldown <= 0)
         {
             skelleton.isAttacking = true;

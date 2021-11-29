@@ -17,11 +17,6 @@ public class PatrolState : State
     public float chaseSpeedBoost;
     void Patrol()
     {
-
-    }
-    public override State RunCurrentState()
-    {
-        Debug.Log("Patrolling!");
         if (restTimer < 0)
         {
             if (walkTimer > 0)
@@ -43,6 +38,10 @@ public class PatrolState : State
             hostileCreature.StopMoving();
             animationManager.PlayIdleAnimation();
         }
+    }
+    public override State RunCurrentState()
+    {
+        Patrol();
         if (notice.isPlayerInRange)
         {
             hostileCreature.moveSpeed += chaseSpeedBoost;

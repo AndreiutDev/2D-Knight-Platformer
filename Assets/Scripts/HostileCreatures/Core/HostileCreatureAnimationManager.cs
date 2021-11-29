@@ -10,7 +10,7 @@ public class HostileCreatureAnimationManager : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
-        animator.SetFloat("speed", hostileCreature.moveSpeed);
+        animator?.SetFloat("speed", hostileCreature.moveSpeed);
     }
     public void PlayIdleAnimation()
     {
