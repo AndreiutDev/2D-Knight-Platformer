@@ -174,6 +174,7 @@ public class PlayerActions : MonoBehaviour
 
             player.deathKick.x = player.deathKick.x * Mathf.Sign(transform.localScale.x) * (-1);
             player.playerRigidbody.velocity = player.deathKick;
+            StartCoroutine(UIManager.playStartTransition(UIManager.deathGroupAnimator));
         }
     }
     public void FlipPlayer()
