@@ -29,10 +29,10 @@ public class PlayerActions : MonoBehaviour
     internal float hurtTimer;
 
     public float hangTime;
-    private float hangCounter;
+    public float hangCounter;
 
     public float jumpBufferLength;
-    private float jumpBufferCount;
+    public float jumpBufferCount;
 
     public HostileCreature enemyWhoAttacked;
 
@@ -108,7 +108,6 @@ public class PlayerActions : MonoBehaviour
         {
             jumpBufferCount -= Time.deltaTime;
         }
-
         if (player.playerCollision.isTouchingGround)
         {
             hangCounter = hangTime;
@@ -119,6 +118,7 @@ public class PlayerActions : MonoBehaviour
         }
         if (jumpBufferCount >= 0 && hangCounter > 0)
         {
+            Debug.Log(jumpBufferCount + " " + hangCounter);
             player.playerRigidbody.velocity = new Vector2(player.playerRigidbody.velocity.x, player.jumpForce);
             jumpBufferCount = 0;
         }
