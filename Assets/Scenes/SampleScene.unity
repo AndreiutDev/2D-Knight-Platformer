@@ -1000,10 +1000,11 @@ GameObject:
   - component: {fileID: 207721928}
   - component: {fileID: 207721927}
   - component: {fileID: 207721926}
-  - component: {fileID: 207721931}
   - component: {fileID: 207721930}
   - component: {fileID: 207721929}
+  - component: {fileID: 207721931}
   - component: {fileID: 207721932}
+  - component: {fileID: 207721933}
   m_Layer: 9
   m_Name: ShroomKnight
   m_TagString: Untagged
@@ -1161,6 +1162,12 @@ MonoBehaviour:
   hostileEntityCollider: {fileID: 207721930}
   health: 200
   damage: 0
+  shroomKnight: {fileID: 0}
+  minDistance: 0
+  strength: 0
+  speed: 0
+  stamina: 0
+  regenRate: 0
 --- !u!114 &207721932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1173,6 +1180,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d6021b35b65d2849ac57ee5d602a06f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &207721933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207721925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67168fae228cb89499387c2a758afaee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost: 1
+  inRange: 0
+  target: {fileID: 1369074356}
 --- !u!1 &217108447
 GameObject:
   m_ObjectHideFlags: 0
@@ -2323,7 +2345,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 4480495797850718739}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1369074356}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bfffa7aaab9285240a9cb25e16d1bd21, type: 3}
@@ -46648,7 +46670,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 4480495797850718739}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1369074356}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d27effda6e54b8349bab5ec23459b797, type: 3}
@@ -46890,6 +46912,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 653ce18d3cd074b45ac60867d665b17c, type: 3}
+--- !u!1 &1369074356 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4480495797858622468, guid: 2dcdb47bd91c8f74a8b1c828364aa02d,
+    type: 3}
+  m_PrefabInstance: {fileID: 4480495797850718739}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1407494213
 GameObject:
   m_ObjectHideFlags: 0

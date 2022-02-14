@@ -61,6 +61,7 @@ public class GoapAgent : MonoBehaviour
 			HashSet<KeyValuePair<string, object>> goal = dataProvider.CreateGoalState();
 
 			Queue<GoapAction> plan = planner.Plan(gameObject, availableActions, worldState, goal);
+
 			if (plan != null)
 			{
 				currentActions = plan;
@@ -94,7 +95,6 @@ public class GoapAgent : MonoBehaviour
 			{
 				fsm.popState();
 			}
-
 		};
 	}
 	private void CreatePerformActionState()
@@ -152,6 +152,7 @@ public class GoapAgent : MonoBehaviour
 			if (typeof(IGoap).IsAssignableFrom(comp.GetType()))
 			{
 				dataProvider = (IGoap)comp;
+				Debug.Log(dataProvider);
 				return;
 			}
 		}

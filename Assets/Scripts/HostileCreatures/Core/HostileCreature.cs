@@ -7,7 +7,7 @@ public abstract class HostileCreature : MonoBehaviour
     public HostileCreature self;
     public Player player;
     //Animator
-    [SerializeField] protected HostileCreatureAnimationManager hostileCreatureAnimationManager;
+    [SerializeField] public HostileCreatureAnimationManager hostileCreatureAnimationManager;
     
     //Config
     [SerializeField] public float moveSpeed = 4f;
@@ -15,6 +15,7 @@ public abstract class HostileCreature : MonoBehaviour
     [SerializeField] public float knockbackTime = 0f;
     [SerializeField] protected Vector3 playerKnockback = new Vector3(3, 0, 0);
     [SerializeField] protected float scale;
+    [SerializeField] protected bool isSpriteInverted;
     
     //Death
     [SerializeField] private GameObject deathParticles;
@@ -61,11 +62,25 @@ public abstract class HostileCreature : MonoBehaviour
     }
     public void MoveRight()
     {
-        rigidbody2D.velocity = new Vector2(moveSpeed, rigidbody2D.velocity.y);
+        if (isSpriteInverted)
+        {
+            rigidbody2D.velocity = new Vector2(-moveSpeed, rigidbody2D.velocity.y);
+        }
+        else
+        {
+            rigidbody2D.velocity = new Vector2(moveSpeed, rigidbody2D.velocity.y);
+        }
     }
     public void MoveLeft()
     {
-        rigidbody2D.velocity = new Vector2(-moveSpeed, rigidbody2D.velocity.y);
+        if (isSpriteInverted)
+        {
+            rigidbody2D.velocity = new Vector2(moveSpeed, rigidbody2D.velocity.y);
+        }
+        else
+        {
+            rigidbody2D.velocity = new Vector2(-moveSpeed, rigidbody2D.velocity.y);
+        }
     }
     public void MoveUp()
     {
@@ -93,13 +108,28 @@ public abstract class HostileCreature : MonoBehaviour
     #region PositionRelativeToThePlayer
     public void ChangeDirectionRelativeToPlayer()
     {
-        if (isPlayerToTheLeft())
+       
+        if (isSpriteInverted)
         {
-            transform.localScale = new Vector2(-2f, 2f);
+            if (isPlayerToTheLeft())
+            {
+                transform.localScale = new Vector2(2f, 2f);
+            }
+            else
+            {
+                transform.localScale = new Vector2(-2f, 2f);
+            }
         }
         else
         {
-            transform.localScale = new Vector2(2f, 2f);
+            if (isPlayerToTheLeft())
+            {
+                transform.localScale = new Vector2(-2f, 2f);
+            }
+            else
+            {
+                transform.localScale = new Vector2(2f, 2f);
+            }
         }
     }
     public bool isPlayerToTheLeft()

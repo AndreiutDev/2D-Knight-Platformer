@@ -1,8 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
 public interface FSMState
 {
-    void Update(FSM fsm, GameObject gameObject);
+
+	void Update(FSMState fsm, GameObject obj);
 }

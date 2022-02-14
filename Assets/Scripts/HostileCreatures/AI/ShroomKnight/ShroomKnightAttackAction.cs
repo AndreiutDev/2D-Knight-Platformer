@@ -6,7 +6,7 @@ public class ShroomKnightAttackAction : GoapAction
 {
 	private bool attacked = false;
 
-	public ShroomKnightAttackAction()
+    public ShroomKnightAttackAction()
 	{
 		AddEffect("damagePlayer", true);
 		cost = 100f;
@@ -30,12 +30,27 @@ public class ShroomKnightAttackAction : GoapAction
 
 	public override bool CheckProceduralPreconditions(GameObject agent)
 	{
-		target = GameObject.Find("Player");
+		target = GameObject.Find("knight");
 		return target != null;
 	}
 
 	public override bool Perform(GameObject agent)
 	{
-		return true;
+		ShroomKnight shroomKnight = agent.GetComponent<ShroomKnight>();
+		Debug.Log("ATTACK: " + attacked);
+		if (shroomKnight.stamina >= (cost))
+		{
+			Debug.Log("ShroomKnight attack!");
+			shroomKnight.hostileCreatureAnimationManager.animator.SetTrigger("attack");
+			shroomKnight.player.playerActions.Hurt();
+			shroomKnight.stamina -= cost;
+
+			attacked = true;
+			return false;
+		}
+		else
+		{
+			return true;
+		}
 	}
 }

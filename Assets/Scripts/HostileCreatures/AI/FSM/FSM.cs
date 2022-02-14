@@ -1,11 +1,12 @@
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using System;
 
-public class FSM : MonoBehaviour
+public class FSM
 {
-    private Stack<FSMState> stateStack = new Stack<FSMState>();
 
+	private Stack<FSMState> stateStack = new Stack<FSMState>();
 	public delegate void FSMState(FSM fsm, GameObject obj);
 	public void Update(GameObject obj)
 	{

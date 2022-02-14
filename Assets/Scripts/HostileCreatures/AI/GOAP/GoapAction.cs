@@ -17,6 +17,11 @@ public abstract class GoapAction : MonoBehaviour
         target = null;
         ResetAction();
     }
+    public GoapAction()
+    {
+        preconditions = new HashSet<KeyValuePair<string, object>>();
+        effects = new HashSet<KeyValuePair<string, object>>();
+    }
     public abstract bool Perform(GameObject agent);
 
     public abstract bool RequiresInRange();
@@ -63,5 +68,20 @@ public abstract class GoapAction : MonoBehaviour
         }
         if (!default(KeyValuePair<string, object>).Equals(remove))
             effects.Remove(remove);
+    }
+    public HashSet<KeyValuePair<string, object>> Preconditions
+    {
+        get
+        {
+            return preconditions;
+        }
+    }
+
+    public HashSet<KeyValuePair<string, object>> Effects
+    {
+        get
+        {
+            return effects;
+        }
     }
 }
