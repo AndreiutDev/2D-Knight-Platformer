@@ -18,6 +18,7 @@ public abstract class HostileCreatureGoap : HostileCreature, IGOAP {
 	protected float chaseDistance = 10f;
 	protected bool loop = false;
 	protected float maxStamina;
+	public float distanceRelativeToThePlayer;
 
 	public float attackDuration;
 	public float attackDurationTimer;
@@ -25,10 +26,11 @@ public abstract class HostileCreatureGoap : HostileCreature, IGOAP {
 	public float attackOverchargeDuration;
 	public float attackOverchargeDurationTimer;
 
-	public float evadeTimer;
-	public float evadeDuration;
+	public float evadeCooldownTimer;
+	public float evadeCooldownDuration;
 	public float evadeDistance;
-	private bool evaded;
+	public float evadeDuration;
+	public float evadeTimer;
 
 	void RegenerateStamina()
     {
@@ -41,7 +43,7 @@ public abstract class HostileCreatureGoap : HostileCreature, IGOAP {
 			stamina = maxStamina;
 		}
 	}
-	void AttackTimersHandler()
+	void TimersHandler()
     {
 		if (attackDurationTimer >= 0)
 		{
@@ -51,18 +53,29 @@ public abstract class HostileCreatureGoap : HostileCreature, IGOAP {
 		{
 			attackOverchargeDurationTimer -= Time.deltaTime;
 		}
+		if (evadeCooldownTimer >= 0)
+        {
+			evadeCooldownTimer -= Time.deltaTime;
+        }
+		if (evadeTimer >= 0)
+        {
+			evadeTimer -= Time.deltaTime;
+        }
 	}
 	void Chase()
     {
 		float dist = Vector3.Distance(transform.position, player.transform.position);
-
+		distanceRelativeToThePlayer = dist;
+		if (attackDurationTimer <= 0)
+        {
+			ChangeDirectionRelativeToPlayer();
+		}
+		
 		if (dist < chaseDistance && attackOverchargeDurationTimer <= 0)
 		{
-			evaded = false;
 			if (Mathf.Abs(transform.position.x - player.transform.position.x) > minDist)
 			{
 				Move();
-				ChangeDirectionRelativeToPlayer();
 				if (attackDurationTimer <= 0 && dist > minDist)
 				{
 					hostileCreatureAnimationManager.PlayWalkingAnimation();
@@ -93,7 +106,7 @@ public abstract class HostileCreatureGoap : HostileCreature, IGOAP {
 	public virtual void Update()
 	{
 		RegenerateStamina();
-		AttackTimersHandler();
+		TimersHandler();
 		Chase();
 	}
 

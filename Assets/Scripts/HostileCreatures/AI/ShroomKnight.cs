@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class ShroomKnight : HostileCreatureGoap, IAttack
+public class ShroomKnight : HostileCreatureGoap, IAttack, IEvade
 {
 	public FlashMaterial flashMaterial;
 	public LayerMask whichIsThePlayer;
@@ -10,20 +10,14 @@ public class ShroomKnight : HostileCreatureGoap, IAttack
 	public float restTime = 1f;
 	public bool isAttacking;
 
-	// Use this for initialization
+
 	void Start () {
 		stamina = 100f;
-		health = 50;
 		speed = 20;
 		strength = 10;
-		regenRate = 50f;
+		regenRate = 25f;
 		maxStamina = 100f;
-		evadeDistance = 3.5f;
-		terminalSpeed = speed / 10;
-		initialSpeed = (speed / 10) / 2;
-		acceleration = (speed / 10) / 4;
-
-		animator = GetComponent<Animator> ();
+		animator = GetComponent<Animator>();
 	}
 	public override void passiveRegen(){
 		stamina += regenRate * Time.deltaTime;
@@ -60,5 +54,26 @@ public class ShroomKnight : HostileCreatureGoap, IAttack
 	{
 		hostileCreatureAnimationManager.animator.SetTrigger("attack");
 		Invoke("CheckForInRangeEnemiesAndDealDamage", 0.4f);
+	}
+	public void Evade()
+	{
+		hostileCreatureAnimationManager.PlayWalkingAnimation();
+		if (isFacingRight())
+		{
+			MoveLeft();
+		}
+		else if (isFacingLeft())
+		{
+			MoveRight();
+		}
+	}
+
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		Debug.Log("OOOOFIEEES" + this.transform.position.y + " : " + collision.gameObject.transform.position.y);
+		if (this.transform.position.y <= collision.gameObject.transform.position.y)
+		{
+			collision.gameObject.GetComponent<Player>().playerRigidbody.AddForce(new Vector2(0f, 15f), ForceMode2D.Impulse);
+		}
 	}
 }

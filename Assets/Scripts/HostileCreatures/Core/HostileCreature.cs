@@ -29,7 +29,7 @@ public abstract class HostileCreature : MonoBehaviour
     public CapsuleCollider2D hostileEntityCollider;
 
     [SerializeField]
-    protected int health;
+    public int health;
     public int damage;
     void Start()
     {

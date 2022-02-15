@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class WolfAttackAction : GOAPAction {
+public class ShroomKnightAttackAction : GOAPAction {
 
 	private bool attacked = false;
 
-	public WolfAttackAction()
+	public ShroomKnightAttackAction()
 	{
 		addEffect("damagePlayer", true);
 		cost = 100f;
