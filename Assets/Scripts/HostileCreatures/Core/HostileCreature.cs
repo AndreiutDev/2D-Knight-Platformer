@@ -108,7 +108,6 @@ public abstract class HostileCreature : MonoBehaviour
     #region PositionRelativeToThePlayer
     public void ChangeDirectionRelativeToPlayer()
     {
-       
         if (isSpriteInverted)
         {
             if (isPlayerToTheLeft())
