@@ -179,6 +179,7 @@ public class PlayerActions : MonoBehaviour
     public void Revive()
     {
         gameObject.transform.position = player.playerSpawn.spawnCheckpoint.position;
+        player.immunity.GainImmunity();
         player.health = player.maxHealth;
         player.playerAnimator.Play("idling");
         GameObject.Find("PlayerWeapon").GetComponent<Animator>().Play("IdleAnimationEmeraldSword");

@@ -31,6 +31,7 @@ public class Checkpoint : MonoBehaviour
     public void SetActive()
     {
         isCheckpointActive = true;
+        PopupManager.InstantiateCheckpointPopup(transform, new Vector3(0, 0, 0));
         activateAnimationTimer = 1.4f;
         PlayActivateAnimation();
     }
