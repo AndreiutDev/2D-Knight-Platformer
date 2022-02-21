@@ -118,7 +118,6 @@ public class PlayerActions : MonoBehaviour
         }
         if (jumpBufferCount >= 0 && hangCounter > 0)
         {
-            Debug.Log(jumpBufferCount + " " + hangCounter);
             player.playerRigidbody.velocity = new Vector2(player.playerRigidbody.velocity.x, player.jumpForce);
             jumpBufferCount = 0;
         }
@@ -176,6 +175,15 @@ public class PlayerActions : MonoBehaviour
             player.playerRigidbody.velocity = player.deathKick;
             StartCoroutine(UIManager.playStartTransition(UIManager.deathGroupAnimator));
         }
+    }
+    public void Revive()
+    {
+        gameObject.transform.position = player.playerSpawn.spawnCheckpoint.position;
+        player.health = player.maxHealth;
+        player.playerAnimator.Play("idling");
+        GameObject.Find("PlayerWeapon").GetComponent<Animator>().Play("IdleAnimationEmeraldSword");
+        StartCoroutine(UIManager.playEndTransition(UIManager.deathGroupAnimator));
+        player.isAlive = true;
     }
     public void FlipPlayer()
     {
