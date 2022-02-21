@@ -23,6 +23,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     internal PlayerActions playerActions;
 
+    [SerializeField]
+    public PlayerSpawn playerSpawn;
+
     internal float groundHeight = 0;
     
     public int health;

@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
+    public static Player player;
+    public Player nonstaticPlayer;
     public Animator nonstaticDeathgroupAnimator;
     public static Animator deathGroupAnimator;
 
@@ -12,22 +14,23 @@ public class UIManager : MonoBehaviour
 
     void Awake()
     {
+        player = nonstaticPlayer;
         deathGroupAnimator = nonstaticDeathgroupAnimator;
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
     }
 
-    public static IEnumerator playStartTransition(Animator transitionAnimor)
+    public static IEnumerator playStartTransition(Animator transitionAnimator)
     {
         yield return new WaitForSeconds(1f);
-        transitionAnimor.Play("transition_start");
+        transitionAnimator.Play("transition_start");
     }
-    public static IEnumerator playEndTransition(Animator transitionAnimor)
+    public static IEnumerator playEndTransition(Animator transitionAnimator)
     {
-        yield return new WaitForSeconds(0.2f);
-        transitionAnimor.Play("transition_end");
+        yield return new WaitForSeconds(0.1f);
+        transitionAnimator.Play("transition_end");
     }
     public static void onDeathGroupClick()
     {
-        SceneManager.LoadScene(currentSceneIndex);
+        player.playerActions.Revive();
     }
 }

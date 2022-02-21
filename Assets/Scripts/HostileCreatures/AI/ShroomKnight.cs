@@ -70,7 +70,6 @@ public class ShroomKnight : HostileCreatureGoap, IAttack, IEvade
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
-		Debug.Log("OOOOFIEEES" + this.transform.position.y + " : " + collision.gameObject.transform.position.y);
 		if (this.transform.position.y <= collision.gameObject.transform.position.y)
 		{
 			collision.gameObject.GetComponent<Player>().playerRigidbody.AddForce(new Vector2(0f, 15f), ForceMode2D.Impulse);
