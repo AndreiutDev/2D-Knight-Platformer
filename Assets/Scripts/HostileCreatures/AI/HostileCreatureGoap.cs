@@ -32,7 +32,7 @@ public abstract class HostileCreatureGoap : HostileCreature, IGOAP {
 	public float evadeDuration;
 	public float evadeTimer;
 
-	void RegenerateStamina()
+	protected void RegenerateStamina()
     {
 		if (stamina <= maxStamina)
 		{
@@ -43,7 +43,7 @@ public abstract class HostileCreatureGoap : HostileCreature, IGOAP {
 			stamina = maxStamina;
 		}
 	}
-	void TimersHandler()
+	protected void TimersHandler()
     {
 		if (attackDurationTimer >= 0)
 		{
@@ -62,7 +62,7 @@ public abstract class HostileCreatureGoap : HostileCreature, IGOAP {
 			evadeTimer -= Time.deltaTime;
         }
 	}
-	void Chase()
+	protected void Chase()
     {
 		float dist = Vector3.Distance(transform.position, player.transform.position);
 		distanceRelativeToThePlayer = dist;
@@ -105,9 +105,7 @@ public abstract class HostileCreatureGoap : HostileCreature, IGOAP {
 	}
 	public virtual void Update()
 	{
-		RegenerateStamina();
-		TimersHandler();
-		Chase();
+		
 	}
 
 	public abstract void passiveRegen();
