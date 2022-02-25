@@ -17,6 +17,7 @@ public abstract class HostileCreatureGoap : HostileCreature, IGOAP {
 	protected float minDist = 2f;
 	protected float chaseDistance = 10f;
 	protected bool loop = false;
+	[SerializeField]
 	protected float maxStamina;
 	public float distanceRelativeToThePlayer;
 
@@ -103,11 +104,6 @@ public abstract class HostileCreatureGoap : HostileCreature, IGOAP {
 			}
 		}
 	}
-	public virtual void Update()
-	{
-		
-	}
-
 	public abstract void passiveRegen();
 
 	public HashSet<KeyValuePair<string, object>> getWorldState(){

@@ -6,18 +6,18 @@ public class CultistPriest : HostileCreatureGoap, IAttack
 {
 	public FlashMaterial flashMaterial;
 	public LayerMask whichIsThePlayer;
-	public Transform attackPosition;
+	public Transform projectileSpawnPosition;
+	public Projectile magicProjectile;
 	public float restTime = 1f;
 	public bool isAttacking;
 
-
 	void Start()
 	{
-		stamina = 100f;
+		stamina = 50f;
 		speed = 20;
 		strength = 10;
-		regenRate = 25f;
-		maxStamina = 100f;
+		regenRate = 18f;
+		maxStamina = 50f;
 		animator = GetComponent<Animator>();
 	}
 	public override void passiveRegen()
@@ -31,6 +31,10 @@ public class CultistPriest : HostileCreatureGoap, IAttack
 		goal.Add(new KeyValuePair<string, object>("stayAlive", true));
 		return goal;
 	}
+	void Update()
+    {
+		RegenerateStamina();
+    }
 	public override void Behaviour()
 	{
 
@@ -45,25 +49,28 @@ public class CultistPriest : HostileCreatureGoap, IAttack
 			Die();
 		}
 	}
-	public void CheckForInRangeEnemiesAndDealDamage()
-	{
-		Collider2D[] enemiesInRangeOfTheAttack = Physics2D.OverlapCircleAll(attackPosition.position, 2.5f, whichIsThePlayer);
-		if (enemiesInRangeOfTheAttack.Length != 0)
-		{
-			player.playerActions.isAttacked = true;
-		}
-	}
 	public void Attack()
 	{
-		hostileCreatureAnimationManager.animator.SetTrigger("attack");
-		Invoke("CheckForInRangeEnemiesAndDealDamage", 0.4f);
+		if (isFacingRight())
+		{
+			magicProjectile.SetProjectileDirectionToRight();
+		}
+		else
+        {
+			magicProjectile.SetProjectileDirectionToLeft();
+
+		}
+		Instantiate(magicProjectile, projectileSpawnPosition.position, Quaternion.identity);
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
-		if (this.transform.position.y <= collision.gameObject.transform.position.y)
-		{
-			collision.gameObject.GetComponent<Player>().playerRigidbody.AddForce(new Vector2(0f, 15f), ForceMode2D.Impulse);
+		if (collision.collider.GetComponent<Player>() != null)
+        {
+			if (this.transform.position.y <= collision.gameObject.transform.position.y)
+			{
+				collision.gameObject.GetComponent<Player>().playerRigidbody.AddForce(new Vector2(0f, 15f), ForceMode2D.Impulse);
+			}
 		}
 	}
 }

@@ -6,6 +6,8 @@ public abstract class Projectile : MonoBehaviour
 {
     public GameObject destroyParticles;
     public Vector3 particlesOffset;
+    public float negativeProjectileSpeed;
+    public float positiveProjectileSpeed;
     public float projectileSpeed;
 
     public virtual void ProjectileBehaviour()
@@ -15,6 +17,14 @@ public abstract class Projectile : MonoBehaviour
     private void Update()
     {
         ProjectileBehaviour();
+    }
+    public void SetProjectileDirectionToRight()
+    {
+        projectileSpeed = positiveProjectileSpeed;
+    }
+    public void SetProjectileDirectionToLeft()
+    {
+        projectileSpeed = negativeProjectileSpeed;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
