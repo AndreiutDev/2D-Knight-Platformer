@@ -28,6 +28,12 @@ public abstract class Projectile : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Player player = collision.collider.GetComponent<Player>();
+        if (player != null)
+        {
+            player.playerActions.isAttacked = true;
+            player.playerActions.Hurt();
+        }
         Instantiate(destroyParticles, this.transform.position + particlesOffset, Quaternion.identity);
         Destroy(gameObject);
     }

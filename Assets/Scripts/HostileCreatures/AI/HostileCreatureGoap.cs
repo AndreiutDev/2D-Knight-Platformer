@@ -66,13 +66,14 @@ public abstract class HostileCreatureGoap : HostileCreature, IGOAP {
 	protected void Chase()
     {
 		float dist = Vector3.Distance(transform.position, player.transform.position);
+		float xDist = Mathf.Abs(transform.position.x - player.transform.position.x);
 		distanceRelativeToThePlayer = dist;
 		if (attackDurationTimer <= 0)
         {
 			ChangeDirectionRelativeToPlayer();
 		}
-		
-		if (dist < chaseDistance && attackOverchargeDurationTimer <= 0)
+
+		if (dist < chaseDistance && attackOverchargeDurationTimer <= 0 && xDist >= 1.5f)
 		{
 			if (Mathf.Abs(transform.position.x - player.transform.position.x) > minDist)
 			{

@@ -40,7 +40,6 @@ public class CultistPriestAttackAction : GOAPAction
 		if (cultistPriest.stamina >= (cost))
 		{
 			cultistPriest.Attack();
-			Debug.Log("Attack!!!");
 			cultistPriest.stamina -= cost;
 			attacked = true;
 			return false;
