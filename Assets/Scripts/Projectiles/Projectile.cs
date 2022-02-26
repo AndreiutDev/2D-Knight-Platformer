@@ -20,10 +20,12 @@ public abstract class Projectile : MonoBehaviour
     }
     public void SetProjectileDirectionToRight()
     {
+        transform.localScale = new Vector3(2, transform.localScale.y, 0);
         projectileSpeed = positiveProjectileSpeed;
     }
     public void SetProjectileDirectionToLeft()
     {
+        transform.localScale = new Vector3(-2, transform.localScale.y, 0);
         projectileSpeed = negativeProjectileSpeed;
     }
     private void OnCollisionEnter2D(Collision2D collision)

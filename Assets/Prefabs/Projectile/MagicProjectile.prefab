@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 232022178864833313}
   - component: {fileID: 232022178864833312}
   - component: {fileID: 232022178864833318}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MagicProjectileStartEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 232022178864833315}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.29, y: -0.05, z: -1.3271434}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 232022179012989221}
   m_RootOrder: 0
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 232022179012989217}
   - component: {fileID: 232022179012989216}
   - component: {fileID: 232022179012989219}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MagicProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ Transform:
   m_GameObject: {fileID: 232022179012989218}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -47.98, y: 7.26, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: -2, y: 2, z: 0}
   m_Children:
   - {fileID: 232022178864833313}
   m_Father: {fileID: 0}
@@ -227,7 +227,7 @@ MonoBehaviour:
   particlesOffset: {x: 0, y: 0, z: 0}
   negativeProjectileSpeed: -5
   positiveProjectileSpeed: 5
-  projectileSpeed: 5
+  projectileSpeed: -5
 --- !u!50 &232022179012989217
 Rigidbody2D:
   serializedVersion: 4
