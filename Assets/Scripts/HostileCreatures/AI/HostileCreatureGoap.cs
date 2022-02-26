@@ -17,6 +17,7 @@ public abstract class HostileCreatureGoap : HostileCreature, IGOAP {
 	protected float minDist = 2f;
 	protected float chaseDistance = 10f;
 	protected bool loop = false;
+	[SerializeField]
 	protected float maxStamina;
 	public float distanceRelativeToThePlayer;
 
@@ -32,7 +33,7 @@ public abstract class HostileCreatureGoap : HostileCreature, IGOAP {
 	public float evadeDuration;
 	public float evadeTimer;
 
-	void RegenerateStamina()
+	protected void RegenerateStamina()
     {
 		if (stamina <= maxStamina)
 		{
@@ -43,7 +44,7 @@ public abstract class HostileCreatureGoap : HostileCreature, IGOAP {
 			stamina = maxStamina;
 		}
 	}
-	void TimersHandler()
+	protected void TimersHandler()
     {
 		if (attackDurationTimer >= 0)
 		{
@@ -62,16 +63,17 @@ public abstract class HostileCreatureGoap : HostileCreature, IGOAP {
 			evadeTimer -= Time.deltaTime;
         }
 	}
-	void Chase()
+	protected void Chase()
     {
 		float dist = Vector3.Distance(transform.position, player.transform.position);
+		float xDist = Mathf.Abs(transform.position.x - player.transform.position.x);
 		distanceRelativeToThePlayer = dist;
 		if (attackDurationTimer <= 0)
         {
 			ChangeDirectionRelativeToPlayer();
 		}
-		
-		if (dist < chaseDistance && attackOverchargeDurationTimer <= 0)
+
+		if (dist < chaseDistance && attackOverchargeDurationTimer <= 0 && xDist >= 1.5f)
 		{
 			if (Mathf.Abs(transform.position.x - player.transform.position.x) > minDist)
 			{
@@ -103,13 +105,6 @@ public abstract class HostileCreatureGoap : HostileCreature, IGOAP {
 			}
 		}
 	}
-	public virtual void Update()
-	{
-		RegenerateStamina();
-		TimersHandler();
-		Chase();
-	}
-
 	public abstract void passiveRegen();
 
 	public HashSet<KeyValuePair<string, object>> getWorldState(){

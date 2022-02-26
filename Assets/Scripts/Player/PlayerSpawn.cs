@@ -7,7 +7,7 @@ public class PlayerSpawn : MonoBehaviour
     public Transform spawnCheckpoint;
     public void Start()
     {
-        this.transform.position = spawnCheckpoint.position;
+        //this.transform.position = spawnCheckpoint.position;
     }
     public void SpawnPlayerToCheckpoint()
     {

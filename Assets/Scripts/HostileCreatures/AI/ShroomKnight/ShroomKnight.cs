@@ -67,8 +67,14 @@ public class ShroomKnight : HostileCreatureGoap, IAttack, IEvade
 			MoveRight();
 		}
 	}
+    public void Update()
+    {
+		RegenerateStamina();
+		TimersHandler();
+		Chase();
+	}
 
-	private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
 	{
 		if (this.transform.position.y <= collision.gameObject.transform.position.y)
 		{
