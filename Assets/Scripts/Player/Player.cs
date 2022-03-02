@@ -52,7 +52,7 @@ public class Player : MonoBehaviour
 
     //Stats
 
-    void Start()
+    void Awake()
     {
         playerRigidbody = GetComponent<Rigidbody2D>();
         playerBodyCollider = GetComponent<CapsuleCollider2D>();
@@ -68,6 +68,7 @@ public class Player : MonoBehaviour
         playerActions.FlipPlayer();
         playerActions.Die();
         playerActions.Attack();
+        playerMovement.ClimbLadder();
         playerActions.Hurt();
     }
     void OnCollisionEnter2D(Collision2D other)

@@ -10,4 +10,5 @@ public class PlayerCollision : MonoBehaviour
     internal bool isTouchingGround => player.playerFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground")) == true;
     internal bool isTouchingEnemy => player.playerBodyCollider.IsTouchingLayers(LayerMask.GetMask("Hazards")) == true;
     internal bool isTouchingHazards => player.playerBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemy")) == true;
+    internal bool isTouchingClimbingConstruct => player.playerFeetCollider.IsTouchingLayers(LayerMask.GetMask("Climbing")) == true;
 }

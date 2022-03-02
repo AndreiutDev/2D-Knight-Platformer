@@ -108,7 +108,7 @@ public class PlayerActions : MonoBehaviour
         {
             jumpBufferCount -= Time.deltaTime;
         }
-        if (player.playerCollision.isTouchingGround)
+        if (player.playerCollision.isTouchingGround || (player.playerCollision.isTouchingClimbingConstruct && player.playerInput.xAxisMovement != 0))
         {
             hangCounter = hangTime;
         }
