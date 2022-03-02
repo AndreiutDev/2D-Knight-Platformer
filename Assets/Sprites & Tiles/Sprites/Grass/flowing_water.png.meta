@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 1e165b26153d3f34a9cb18ebb24518ba
+guid: a06b20fc4a7f12e4ca2682b8f2a1f92f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1833247098351559992
-    second: Ladder_0
+      213: -8822210905480553444
+    second: flowing_water_0
   - first:
-      213: -7515280532982068617
-    second: Ladder_1
+      213: -3641752552665518412
+    second: flowing_water_1
   - first:
-      213: -2388662932940850130
-    second: Ladder_2
+      213: -6122740047206246454
+    second: flowing_water_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -124,80 +124,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ladder_0
+      name: flowing_water_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1c114d6ce5319580800000000000000
+      internalID: -8822210905480553444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flowing_water_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4beef722955e57dc0800000000000000
+      internalID: -3641752552665518412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flowing_water_2
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 19
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 4, y: 0, z: 4, w: 0}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: 5.5, y: -8}
-        - {x: 5.5, y: 8}
-        - {x: -5.5, y: 8}
-        - {x: -5.5, y: -8}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 835a2c2e580017910800000000000000
-      internalID: 1833247098351559992
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ladder_1
-      rect:
-        serializedVersion: 2
-        x: 21
-        y: 0
-        width: 19
-        height: 15
-      alignment: 9
-      pivot: {x: 0.5, y: 0.55}
-      border: {x: 4, y: 0, z: 4, w: 6}
-      outline: []
-      physicsShape:
-      - - {x: 6.5, y: -7.5}
-        - {x: 5.5, y: -1.5}
-        - {x: -5.5, y: -1.5}
-        - {x: -5.5, y: -7.5}
-      - - {x: 6.5, y: -7.5}
-        - {x: 6.5, y: -7.5}
-        - {x: 6.5, y: -7.5}
-        - {x: 5.5, y: -7.5}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 77a02344c2c54b790800000000000000
-      internalID: -7515280532982068617
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ladder_2
-      rect:
-        serializedVersion: 2
-        x: 42
-        y: 0
-        width: 19
-        height: 11
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
-      border: {x: 4, y: 0, z: 4, w: 0}
-      outline: []
-      physicsShape:
-      - - {x: 4.5, y: -5.5}
-        - {x: 4.5, y: 5.5}
-        - {x: -6.5, y: 5.5}
-        - {x: -6.5, y: -5.5}
-      tessellationDetail: 0
-      bones: []
-      spriteID: e2cfae9d7b3c9ded0800000000000000
-      internalID: -2388662932940850130
+      spriteID: ac79632ed58a70ba0800000000000000
+      internalID: -6122740047206246454
       vertices: []
       indices: 
       edges: []

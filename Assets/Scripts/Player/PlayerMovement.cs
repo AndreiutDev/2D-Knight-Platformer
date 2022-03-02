@@ -70,7 +70,6 @@ public class PlayerMovement : MonoBehaviour
         }
         if (isAttached)
         {
-            FreezeMovementOnXAxis();
             Vector2 climbVelocity = new Vector2(player.playerRigidbody.velocity.x, player.playerInput.yAxisMovement * climbSpeed);
             player.playerRigidbody.velocity = climbVelocity;
             player.playerRigidbody.gravityScale = 0f;
