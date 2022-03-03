@@ -1,14 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class GameMenuManager : MonoBehaviour
 {
+    [SerializeField] Button resumeButton;
     [SerializeField] private CanvasGroup mainMenu;
     bool isMenuActive;
+
+    Animator mainMenuAnimator;
     private void Awake()
     {
         isMenuActive = false;
+        mainMenuAnimator = mainMenu.GetComponent<Animator>();
     }
     public void PauseGame()
     {
@@ -26,13 +32,13 @@ public class GameMenuManager : MonoBehaviour
     {
         isMenuActive = false;
         ResumeGame();
-        UIManager.instance.HideCanvasGroup(mainMenu);
+        mainMenuAnimator.Play("GameMenuHide");
     }
     public void ShowGameMenu()
     {
-        isMenuActive = true;
+        resumeButton.Select();
         PauseGame();
-        UIManager.instance.ShowCanvasGroup(mainMenu);
+        mainMenuAnimator.Play("GameMenuShow");
     }
     private void Update()
     {
