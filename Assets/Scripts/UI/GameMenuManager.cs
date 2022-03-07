@@ -16,6 +16,10 @@ public class GameMenuManager : MonoBehaviour
         isMenuActive = false;
         mainMenuAnimator = mainMenu.GetComponent<Animator>();
     }
+    public void LoadMap()
+    {
+        ScenesManager.instance.LoadMapScene();
+    }
     public void PauseGame()
     {
         Time.timeScale = 0f;
@@ -36,6 +40,7 @@ public class GameMenuManager : MonoBehaviour
     }
     public void ShowGameMenu()
     {
+        isMenuActive = true;
         resumeButton.Select();
         PauseGame();
         mainMenuAnimator.Play("GameMenuShow");
@@ -46,10 +51,12 @@ public class GameMenuManager : MonoBehaviour
         {
             if (isMenuActive)
             {
+                Debug.Log("Menu Hidden!");
                 HideGameMenu();
             }
             else
             {
+                Debug.Log("Menu Shown!");
                 ShowGameMenu();
             }
         }
