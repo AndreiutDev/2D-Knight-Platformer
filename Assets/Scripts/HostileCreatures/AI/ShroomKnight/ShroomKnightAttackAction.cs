@@ -24,7 +24,7 @@ public class ShroomKnightAttackAction : GOAPAction {
 
 	public override bool requiresInRange()
 	{
-		return true;
+		return false;
 	}
 
 	public override bool checkProceduralPrecondition(GameObject agent)

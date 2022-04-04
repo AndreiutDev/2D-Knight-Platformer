@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1959264318876525941}
   - component: {fileID: 1959264318876525946}
   - component: {fileID: 1959264318876525947}
+  - component: {fileID: 7669801116539446406}
   m_Layer: 0
   m_Name: ExplosionParticle_Pr
   m_TagString: Untagged
@@ -70,7 +71,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 577469913
-  m_SortingLayer: 13
+  m_SortingLayer: 14
   m_SortingOrder: 0
   m_Sprite: {fileID: -8586217936270772494, guid: 79ffe70d438416f4eb9df4e8953828b5,
     type: 3}
@@ -103,3 +104,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7669801116539446406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959264318876525944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61e272b434f50a44d886e7d68bb1a674, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 4
+  die: 1

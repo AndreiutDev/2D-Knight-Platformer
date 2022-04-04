@@ -70,7 +70,6 @@ public sealed class GOAPAgent : MonoBehaviour {
 			{
 				currentActions = plan;
 				dataProvider.planFound(goal, plan);
-
 				fsm.popState();
 				fsm.pushState(performActionState);
 			}

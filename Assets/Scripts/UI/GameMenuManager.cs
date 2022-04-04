@@ -18,6 +18,7 @@ public class GameMenuManager : MonoBehaviour
     }
     public void LoadMap()
     {
+        ResumeGame();
         ScenesManager.instance.LoadMapScene();
     }
     public void PauseGame()
@@ -36,14 +37,16 @@ public class GameMenuManager : MonoBehaviour
     {
         isMenuActive = false;
         ResumeGame();
-        mainMenuAnimator.Play("GameMenuHide");
+        UIManager.instance.HideCanvasGroup(mainMenu);
+        
     }
     public void ShowGameMenu()
     {
         isMenuActive = true;
         resumeButton.Select();
         PauseGame();
-        mainMenuAnimator.Play("GameMenuShow");
+        UIManager.instance.ShowCanvasGroup(mainMenu);
+
     }
     private void Update()
     {

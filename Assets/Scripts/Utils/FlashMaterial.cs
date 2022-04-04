@@ -23,6 +23,8 @@ public class FlashMaterial : MonoBehaviour
 
     private Coroutine flashRoutine;
 
+    private Coroutine complexFlashRoutine;
+
     #endregion
 
     #endregion
@@ -42,7 +44,14 @@ public class FlashMaterial : MonoBehaviour
         flashMaterial = new Material(flashMaterial);
     }
     #endregion
-
+    public void ComplexFlash(Color primaryColor, Color secondaryColor, float duration)
+    {
+        if (complexFlashRoutine != null)
+        {
+            StopCoroutine(complexFlashRoutine);
+        }
+        complexFlashRoutine = StartCoroutine(ComplexFlashRoutine(primaryColor, secondaryColor, duration));
+    }
     public void Flash(Color color, float duration)
     {
 
@@ -67,6 +76,22 @@ public class FlashMaterial : MonoBehaviour
 
         spriteRenderer.material = originalMaterial;
 
+        flashRoutine = null;
+    }
+    private IEnumerator ComplexFlashRoutine(Color primaryColor, Color secondaryColor, float duration)
+    {
+        spriteRenderer.material = flashMaterial;
+        for (int flashTimes = 0; flashTimes <= 5; flashTimes++)
+        {
+            flashMaterial.color = primaryColor;
+
+            yield return new WaitForSeconds(duration);
+
+            flashMaterial.color = secondaryColor;
+
+            yield return new WaitForSeconds(duration);
+        }
+        spriteRenderer.material = originalMaterial;
         flashRoutine = null;
     }
 

@@ -20,7 +20,6 @@ public abstract class Projectile : MonoBehaviour
     }
     public void SetProjectileDirectionToRight()
     {
-        transform.localScale = new Vector3(2, transform.localScale.y, 0);
         projectileSpeed = positiveProjectileSpeed;
     }
     public void SetProjectileDirectionToLeft()
@@ -28,16 +27,19 @@ public abstract class Projectile : MonoBehaviour
         transform.localScale = new Vector3(-2, transform.localScale.y, 0);
         projectileSpeed = negativeProjectileSpeed;
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.LogError("Oofies");
         Player player = collision.collider.GetComponent<Player>();
+        HostileCreature hostileCreature = collision.collider.GetComponent<HostileCreature>();
         if (player != null)
         {
             player.playerActions.isAttacked = true;
             player.playerActions.Hurt();
         }
+
         Instantiate(destroyParticles, this.transform.position + particlesOffset, Quaternion.identity);
-        Destroy(gameObject);
+        Destroy(this.gameObject);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

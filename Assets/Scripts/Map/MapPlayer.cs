@@ -18,7 +18,6 @@ public class MapPlayer : MonoBehaviour
         float step = speed * Time.deltaTime;
         if (mapPlayerInput.isDownPressed)
         {
-            Debug.Log("Bottom pressed");
             currentMapPoint.MoveBottom(step);
         }
         else if(mapPlayerInput.isUpPressed)
