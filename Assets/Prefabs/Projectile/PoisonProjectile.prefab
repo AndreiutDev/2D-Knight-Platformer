@@ -141,7 +141,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0625, y: -0.15625}
+  m_Offset: {x: -0.08097839, y: -0.071781635}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.45000002, y: 0.3529412}
@@ -152,7 +152,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.25, y: 1.0625}
+  m_Size: {x: 0.48449707, y: 0.24949169}
   m_EdgeRadius: 0
 --- !u!70 &4798366490684042592
 CapsuleCollider2D:
@@ -167,8 +167,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0625, y: -0.15625}
-  m_Size: {x: 1.25, y: 1.0625}
+  m_Offset: {x: -0.12320709, y: -0.0744133}
+  m_Size: {x: 0.7801361, y: 0.780138}
   m_Direction: 0
 --- !u!114 &8232262748306995328
 MonoBehaviour:
@@ -182,11 +182,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88375ccd85175134fbdf7ce0003ddb93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyParticles: {fileID: 2650430007885979250, guid: dc237e5335406b343abf8bf50083babd,
+  destroyParticles: {fileID: 7319000821320452543, guid: 2829173e5e8eca94fba686722687f737,
     type: 3}
   particlesOffset: {x: 0, y: 0, z: 0}
   negativeProjectileSpeed: 0
   positiveProjectileSpeed: 0
-  projectileSpeed: 4
+  projectileSpeed: 6
   PlayerLocation: {x: 0, y: 0, z: 0}
   DirectionVector: {x: 0, y: 0, z: 0}

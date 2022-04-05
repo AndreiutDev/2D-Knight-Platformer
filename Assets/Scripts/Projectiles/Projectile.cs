@@ -29,7 +29,6 @@ public abstract class Projectile : MonoBehaviour
     }
     protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.LogError("Oofies");
         Player player = collision.collider.GetComponent<Player>();
         HostileCreature hostileCreature = collision.collider.GetComponent<HostileCreature>();
         if (player != null)
