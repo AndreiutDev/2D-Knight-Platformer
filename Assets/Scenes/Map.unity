@@ -715,6 +715,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f650ff6e15df092469b93137ba3c0420, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MapPointList:
+  - {fileID: 1319593028}
+  - {fileID: 449978801}
+  - {fileID: 804502827}
+  - {fileID: 816520745}
+  - {fileID: 2031268649}
+  - {fileID: 975717178}
+  - {fileID: 342229667}
   currentMapPoint: {fileID: 1319593028}
   mapPlayerInput: {fileID: 0}
   speed: 20

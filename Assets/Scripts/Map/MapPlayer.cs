@@ -4,14 +4,22 @@ using UnityEngine;
 
 public class MapPlayer : MonoBehaviour
 {
+    public MapPoint[] MapPointList;
     public MapPoint currentMapPoint;
     public MapPlayerInput mapPlayerInput;
+
 
     [SerializeField] private float speed;
 
     private void Awake()
     {
+        int currentMapIndex = PlayerPrefs.GetInt("ActiveMapPoint");
+        currentMapPoint = MapPointList[currentMapIndex];
         mapPlayerInput = GetComponent<MapPlayerInput>();
+    }
+    private void Start()
+    {
+        currentMapPoint.MovePlayerToThisMapPoint();
     }
     public void Update()
     {
@@ -34,6 +42,16 @@ public class MapPlayer : MonoBehaviour
         }
         if (mapPlayerInput.isLoadScenePressed)
         {
+            int index = 0;
+            foreach (MapPoint mapPoint in MapPointList)
+            {
+                if (currentMapPoint == mapPoint)
+                {
+                    Debug.LogError(index);
+                    PlayerPrefs.SetInt("ActiveMapPoint", index);
+                }
+                index++;
+            }
             currentMapPoint.LoadScene();
         }
     }

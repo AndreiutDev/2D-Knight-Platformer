@@ -17,6 +17,10 @@ public class MapPoint : MonoBehaviour
         mapPlayerGameObject = GameObject.Find("MapPlayer");
         mapPlayer = mapPlayerGameObject.GetComponent<MapPlayer>();
     }
+    public void MovePlayerToThisMapPoint()
+    {
+        mapPlayer.transform.position = transform.position;
+    }
     public void MoveRight(float step)
     {
         if (rightPoint != null)

@@ -27,6 +27,7 @@ public class CheckpointManager : MonoBehaviour
         {
             if (checkpointList[index] == currentCheckpoint)
             {
+                PlayerPrefs.SetInt("ActiveCheckpointIndex", index);
                 checkpointList[index].SetActive();
                 activeCheckpoint = currentCheckpoint;
             }
@@ -35,6 +36,10 @@ public class CheckpointManager : MonoBehaviour
                 checkpointList[index].SetInactive();
             }
         }
+    }
+    public void ResetCheckpoint()
+    {
+        PlayerPrefs.SetInt("ActiveCheckpointIndex", 0);
     }
     public void SetAllCheckpointsInactive()
     {
