@@ -6,7 +6,6 @@ public class WaterSlime : HostileCreature, IAttack
 {
     private Notice notice;
 
-    //attack
     public Vector3 maxAttackJumpForce;
     public Vector3 minAttackJumpForce;
     private Vector3 attackJumpForce;
@@ -18,7 +17,7 @@ public class WaterSlime : HostileCreature, IAttack
 
     public float walkTimeTimer;
     public float walkTime;
-    //internal bool isTouchingGround => groundCollider.IsTouchingLayers(LayerMask.GetMask("Ground")) == true;
+
     void Awake()
     {
         notice = GetComponent<Notice>();
@@ -89,7 +88,6 @@ public class WaterSlime : HostileCreature, IAttack
             Die();
         }
     }
-
     void FixedUpdate()
     {
         if (dazzleTime <= 0)
